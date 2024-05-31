@@ -1,0 +1,77 @@
+module calculator(
+	input wire clk,
+	input wire reset,
+	input wire[7:0] rx_data,//接收数据
+	output reg[7:0] tx_data//发送数据
+);
+
+reg[31:0]operator1,operator2;//两个操作数
+reg[3:0]operation;//00-加法，01-减法，10-乘法，11-除法
+reg[63:0]result;
+reg[31:0] temp_operator;//临时操作数
+
+localparam IDLE = 0,READ_OP1 = 1,READ_OP2 = 2,CALC = 3,SEND_RESULT = 4;
+reg [2:0]state,next_state;//状态机定义
+
+always @(*) beign
+	case(state)
+		IDLE:next_state <= READ_OP1;
+		READ_OP1:next_state <= READ_OP2;
+		READ_OP2:next_state <= CALC;
+		CALC:next_state <= SEND_RESULT;
+		SEND_RESULT:next_state <= IDLE;
+		default:next_state <= IDLE;//计算逻辑状态转移
+	endcase
+end
+
+always @(posedge clk)begin
+	if (reset) begin
+		state <= IDLE;//初始化状态
+		operator1 <= 0;
+		operator2 <= 0;
+		operation <= 0;
+		temp_operator <= 0;
+	end
+	case(state)
+		IDLE:begin
+			if(rx_data >= "0" && rx_data <= "9")begin//判断所接收到的字符是否为一个数字ASCII码
+				temp_operator <= rx_data - "0";//ASCII码字符转换为数字并暂时存放
+				state <= next_state;
+			end
+		end
+		READ_OP1:begin
+			if(rx_data >= "0" && rx_data <= "9")begin
+				temp_operator <= temp_operator * 10 + (rx_data - "0")//取操作数1
+			end else if(rx_data == "+" || rx_data == "-" || rx_data == "*" || rx_data == "/")begin
+				operator1 <= temp_operator;//检测到运算符，第一个操作数取数结束
+				operation <= rx_data;//得到运算符
+				temp_operation <= 0;//临时操作数归零
+				state <= next_state;
+			end
+		end
+		READ_OP2:begin
+			if(rx_data >= "0" && rx_data <= "9")begin
+				temp_operator <= temp_operator * 10 + (rx_data - "0")//取操作数2
+			end else if(rx_data == "=") begin
+				operator2 <= temp_operator;//检测到等号，第二个操作数取数结束
+				state <= next_state;
+			end
+		end
+		default:state <= IDLE;
+	endcase
+end
+
+always @(posedge clk)begin
+	if(state == CALC)begin
+		case(operation)
+			2'b00:result <= operator1 + operator2;
+			2'b01:result <= operator1 - operator2;
+			2'b10:result <= operator1 * operator2;
+			2'b11:result <= operator1 / operator2;
+			default:result <= 0;
+		endcase
+		tx_data <= result;
+	end
+end//计算和输出逻辑
+
+endmodule 
