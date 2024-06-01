@@ -1,0 +1,978 @@
+Analysis & Synthesis report for assignment
+Sat May 18 14:53:19 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |assignment|calculator:inst4|operation
+ 10. State Machine - |assignment|calculator:inst4|state
+ 11. State Machine - |assignment|uart_receive:inst3|state
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Parameter Settings for User Entity Instance: uart_receive:inst3
+ 18. Parameter Settings for User Entity Instance: uart_send:inst5
+ 19. Parameter Settings for Inferred Entity Instance: calculator:inst4|lpm_divide:Mod0
+ 20. Parameter Settings for Inferred Entity Instance: calculator:inst4|lpm_mult:Mult0
+ 21. Parameter Settings for Inferred Entity Instance: calculator:inst4|lpm_divide:Div0
+ 22. Parameter Settings for Inferred Entity Instance: calculator:inst4|lpm_divide:Div1
+ 23. Parameter Settings for Inferred Entity Instance: calculator:inst4|lpm_mult:Mult1
+ 24. lpm_mult Parameter Settings by Entity Instance
+ 25. Port Connectivity Checks: "uart_send:inst5"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat May 18 14:53:19 2024       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; assignment                                  ;
+; Top-level Entity Name              ; assignment                                  ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 4,417                                       ;
+;     Total combinational functions  ; 4,360                                       ;
+;     Dedicated logic registers      ; 402                                         ;
+; Total registers                    ; 402                                         ;
+; Total pins                         ; 3                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 12                                          ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6F17C8        ;                    ;
+; Top-level entity name                                            ; assignment         ; assignment         ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 10          ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 10          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processors 7-10        ;   0.1%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                   ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------+---------+
+; calculator.v                     ; yes             ; User Verilog HDL File        ; D:/Quartus/project/bigjob/calculator.v                         ;         ;
+; assignment.v                     ; yes             ; User Verilog HDL File        ; D:/Quartus/project/bigjob/assignment.v                         ;         ;
+; uart_send.v                      ; yes             ; User Verilog HDL File        ; D:/Quartus/project/bigjob/uart_send.v                          ;         ;
+; uart_receive.v                   ; yes             ; User Verilog HDL File        ; D:/Quartus/project/bigjob/uart_receive.v                       ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/aglobal201.inc      ;         ;
+; db/lpm_divide_8bm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/lpm_divide_8bm.tdf                ;         ;
+; db/sign_div_unsign_tlh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/sign_div_unsign_tlh.tdf           ;         ;
+; db/alt_u_div_e7f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/alt_u_div_e7f.tdf                 ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/add_sub_7pc.tdf                   ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/add_sub_8pc.tdf                   ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_86t.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/mult_86t.tdf                      ;         ;
+; db/lpm_divide_b2p.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/lpm_divide_b2p.tdf                ;         ;
+; db/abs_divider_6dg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/abs_divider_6dg.tdf               ;         ;
+; db/alt_u_div_aaf.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/alt_u_div_aaf.tdf                 ;         ;
+; db/lpm_abs_j0a.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/lpm_abs_j0a.tdf                   ;         ;
+; db/lpm_divide_u0p.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/lpm_divide_u0p.tdf                ;         ;
+; db/abs_divider_pbg.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/abs_divider_pbg.tdf               ;         ;
+; db/alt_u_div_g7f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/alt_u_div_g7f.tdf                 ;         ;
+; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/lpm_abs_2v9.tdf                   ;         ;
+; db/lpm_abs_n0a.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/lpm_abs_n0a.tdf                   ;         ;
+; db/mult_g4t.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Quartus/project/bigjob/db/mult_g4t.tdf                      ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 4,417     ;
+;                                             ;           ;
+; Total combinational functions               ; 4360      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 1596      ;
+;     -- 3 input functions                    ; 1537      ;
+;     -- <=2 input functions                  ; 1227      ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 2814      ;
+;     -- arithmetic mode                      ; 1546      ;
+;                                             ;           ;
+; Total registers                             ; 402       ;
+;     -- Dedicated logic registers            ; 402       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 3         ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 12        ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 402       ;
+; Total fan-out                               ; 14679     ;
+; Average fan-out                             ; 3.07      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                        ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                            ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |assignment                               ; 4360 (0)            ; 402 (0)                   ; 0           ; 12           ; 0       ; 6         ; 3    ; 0            ; |assignment                                                                                                                                    ; assignment          ; work         ;
+;    |calculator:inst4|                     ; 4269 (887)          ; 334 (334)                 ; 0           ; 12           ; 0       ; 6         ; 0    ; 0            ; |assignment|calculator:inst4                                                                                                                   ; calculator          ; work         ;
+;       |lpm_divide:Div0|                   ; 1315 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div0                                                                                                   ; lpm_divide          ; work         ;
+;          |lpm_divide_b2p:auto_generated|  ; 1315 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div0|lpm_divide_b2p:auto_generated                                                                     ; lpm_divide_b2p      ; work         ;
+;             |abs_divider_6dg:divider|     ; 1315 (67)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div0|lpm_divide_b2p:auto_generated|abs_divider_6dg:divider                                             ; abs_divider_6dg     ; work         ;
+;                |alt_u_div_aaf:divider|    ; 1152 (1148)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div0|lpm_divide_b2p:auto_generated|abs_divider_6dg:divider|alt_u_div_aaf:divider                       ; alt_u_div_aaf       ; work         ;
+;                   |add_sub_7pc:add_sub_0| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div0|lpm_divide_b2p:auto_generated|abs_divider_6dg:divider|alt_u_div_aaf:divider|add_sub_7pc:add_sub_0 ; add_sub_7pc         ; work         ;
+;                   |add_sub_8pc:add_sub_1| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div0|lpm_divide_b2p:auto_generated|abs_divider_6dg:divider|alt_u_div_aaf:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+;                |lpm_abs_j0a:my_abs_den|   ; 49 (49)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div0|lpm_divide_b2p:auto_generated|abs_divider_6dg:divider|lpm_abs_j0a:my_abs_den                      ; lpm_abs_j0a         ; work         ;
+;                |lpm_abs_j0a:my_abs_num|   ; 47 (47)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div0|lpm_divide_b2p:auto_generated|abs_divider_6dg:divider|lpm_abs_j0a:my_abs_num                      ; lpm_abs_j0a         ; work         ;
+;       |lpm_divide:Div1|                   ; 1162 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div1                                                                                                   ; lpm_divide          ; work         ;
+;          |lpm_divide_u0p:auto_generated|  ; 1162 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div1|lpm_divide_u0p:auto_generated                                                                     ; lpm_divide_u0p      ; work         ;
+;             |abs_divider_pbg:divider|     ; 1162 (126)          ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div1|lpm_divide_u0p:auto_generated|abs_divider_pbg:divider                                             ; abs_divider_pbg     ; work         ;
+;                |alt_u_div_g7f:divider|    ; 961 (961)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div1|lpm_divide_u0p:auto_generated|abs_divider_pbg:divider|alt_u_div_g7f:divider                       ; alt_u_div_g7f       ; work         ;
+;                |lpm_abs_n0a:my_abs_num|   ; 75 (75)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Div1|lpm_divide_u0p:auto_generated|abs_divider_pbg:divider|lpm_abs_n0a:my_abs_num                      ; lpm_abs_n0a         ; work         ;
+;       |lpm_divide:Mod0|                   ; 784 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Mod0                                                                                                   ; lpm_divide          ; work         ;
+;          |lpm_divide_8bm:auto_generated|  ; 784 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Mod0|lpm_divide_8bm:auto_generated                                                                     ; lpm_divide_8bm      ; work         ;
+;             |sign_div_unsign_tlh:divider| ; 784 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Mod0|lpm_divide_8bm:auto_generated|sign_div_unsign_tlh:divider                                         ; sign_div_unsign_tlh ; work         ;
+;                |alt_u_div_e7f:divider|    ; 784 (784)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_divide:Mod0|lpm_divide_8bm:auto_generated|sign_div_unsign_tlh:divider|alt_u_div_e7f:divider                   ; alt_u_div_e7f       ; work         ;
+;       |lpm_mult:Mult0|                    ; 92 (0)              ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_mult:Mult0                                                                                                    ; lpm_mult            ; work         ;
+;          |mult_86t:auto_generated|        ; 92 (92)             ; 0 (0)                     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_mult:Mult0|mult_86t:auto_generated                                                                            ; mult_86t            ; work         ;
+;       |lpm_mult:Mult1|                    ; 29 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_mult:Mult1                                                                                                    ; lpm_mult            ; work         ;
+;          |mult_g4t:auto_generated|        ; 29 (29)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |assignment|calculator:inst4|lpm_mult:Mult1|mult_g4t:auto_generated                                                                            ; mult_g4t            ; work         ;
+;    |uart_receive:inst3|                   ; 56 (56)             ; 41 (41)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|uart_receive:inst3                                                                                                                 ; uart_receive        ; work         ;
+;    |uart_send:inst5|                      ; 35 (35)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |assignment|uart_send:inst5                                                                                                                    ; uart_send           ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 6           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 12          ;
+; Signed Embedded Multipliers           ; 2           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 3           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |assignment|calculator:inst4|operation                                        ;
++---------------+---------------+---------------+---------------+---------------+---------------+
+; Name          ; operation.011 ; operation.010 ; operation.001 ; operation.000 ; operation.100 ;
++---------------+---------------+---------------+---------------+---------------+---------------+
+; operation.000 ; 0             ; 0             ; 0             ; 0             ; 0             ;
+; operation.001 ; 0             ; 0             ; 1             ; 1             ; 0             ;
+; operation.010 ; 0             ; 1             ; 0             ; 1             ; 0             ;
+; operation.011 ; 1             ; 0             ; 0             ; 1             ; 0             ;
+; operation.100 ; 0             ; 0             ; 0             ; 1             ; 1             ;
++---------------+---------------+---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |assignment|calculator:inst4|state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++------------------------+---------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+------------------------+-------------------+-----------------------+-----------------------+------------+--------------+--------------+--------------+--------------+--------------+----------------+-------------------+----------------+-------------------+
+; Name                   ; state.EMPTY10 ; state.EMPTY9 ; state.EMPTY8 ; state.EMPTY7 ; state.EMPTY6 ; state.WAIT16 ; state.WAIT15 ; state.WAIT14 ; state.WAIT13 ; state.WAIT12 ; state.WAIT11 ; state.WAIT10 ; state.WAIT9 ; state.WAIT8 ; state.WAIT7 ; state.WAIT6 ; state.WAIT5 ; state.WAIT4 ; state.WAIT3 ; state.WAIT2 ; state.WAIT1 ; state.SEND_RESULT_WAIT ; state.SEND_RESULT ; state.CONVERT_RESULT2 ; state.CONVERT_RESULT1 ; state.CALC ; state.EMPTY5 ; state.EMPTY4 ; state.EMPTY3 ; state.EMPTY2 ; state.EMPTY1 ; state.READ_OP2 ; state.CHECK_SIGN2 ; state.READ_OP1 ; state.CHECK_SIGN1 ;
++------------------------+---------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+------------------------+-------------------+-----------------------+-----------------------+------------+--------------+--------------+--------------+--------------+--------------+----------------+-------------------+----------------+-------------------+
+; state.CHECK_SIGN1      ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 0                 ;
+; state.READ_OP1         ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 1              ; 1                 ;
+; state.CHECK_SIGN2      ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 1                 ; 0              ; 1                 ;
+; state.READ_OP2         ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 1              ; 0                 ; 0              ; 1                 ;
+; state.EMPTY1           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 1            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.EMPTY2           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 1            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.EMPTY3           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 1            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.EMPTY4           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 1            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.EMPTY5           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 1            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.CALC             ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 1          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.CONVERT_RESULT1  ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 1                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.CONVERT_RESULT2  ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 1                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.SEND_RESULT      ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 1                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.SEND_RESULT_WAIT ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT1            ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT2            ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT3            ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT4            ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT5            ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT6            ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT7            ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT8            ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT9            ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT10           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT11           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT12           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT13           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT14           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT15           ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.WAIT16           ; 0             ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.EMPTY6           ; 0             ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.EMPTY7           ; 0             ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.EMPTY8           ; 0             ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.EMPTY9           ; 0             ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
+; state.EMPTY10          ; 1             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                      ; 0                 ; 0                     ; 0                     ; 0          ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0                 ; 0              ; 1                 ;
++------------------------+---------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+------------------------+-------------------+-----------------------+-----------------------+------------+--------------+--------------+--------------+--------------+--------------+----------------+-------------------+----------------+-------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------+
+; State Machine - |assignment|uart_receive:inst3|state ;
++----------+----------+----------+----------+----------+
+; Name     ; state.11 ; state.10 ; state.01 ; state.00 ;
++----------+----------+----------+----------+----------+
+; state.00 ; 0        ; 0        ; 0        ; 0        ;
+; state.01 ; 0        ; 0        ; 1        ; 1        ;
+; state.10 ; 0        ; 1        ; 0        ; 1        ;
+; state.11 ; 1        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+
+
+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++----------------------------------------+--------------------------------------------------+
+; Register name                          ; Reason for Removal                               ;
++----------------------------------------+--------------------------------------------------+
+; calculator:inst4|ascii_buffer[0][7]    ; Merged with calculator:inst4|ascii_buffer[0][6]  ;
+; calculator:inst4|sign[2]               ; Merged with calculator:inst4|sign[1]             ;
+; calculator:inst4|ascii_buffer[1][7]    ; Merged with calculator:inst4|ascii_buffer[1][6]  ;
+; calculator:inst4|ascii_buffer[2][7]    ; Merged with calculator:inst4|ascii_buffer[2][6]  ;
+; calculator:inst4|ascii_buffer[3][7]    ; Merged with calculator:inst4|ascii_buffer[3][6]  ;
+; calculator:inst4|ascii_buffer[4][7]    ; Merged with calculator:inst4|ascii_buffer[4][6]  ;
+; calculator:inst4|ascii_buffer[5][7]    ; Merged with calculator:inst4|ascii_buffer[5][6]  ;
+; calculator:inst4|ascii_buffer[6][7]    ; Merged with calculator:inst4|ascii_buffer[6][6]  ;
+; calculator:inst4|ascii_buffer[7][7]    ; Merged with calculator:inst4|ascii_buffer[7][6]  ;
+; calculator:inst4|ascii_buffer[8][7]    ; Merged with calculator:inst4|ascii_buffer[8][6]  ;
+; calculator:inst4|ascii_buffer[9][7]    ; Merged with calculator:inst4|ascii_buffer[9][6]  ;
+; calculator:inst4|ascii_buffer[10][7]   ; Merged with calculator:inst4|ascii_buffer[10][6] ;
+; calculator:inst4|ascii_buffer[11][7]   ; Merged with calculator:inst4|ascii_buffer[11][6] ;
+; calculator:inst4|ascii_buffer[12][7]   ; Merged with calculator:inst4|ascii_buffer[12][6] ;
+; calculator:inst4|ascii_buffer[13][7]   ; Merged with calculator:inst4|ascii_buffer[13][6] ;
+; calculator:inst4|ascii_buffer[14][7]   ; Merged with calculator:inst4|ascii_buffer[14][6] ;
+; calculator:inst4|ascii_buffer[15][7]   ; Merged with calculator:inst4|ascii_buffer[15][6] ;
+; calculator:inst4|ascii_buffer[16][7]   ; Merged with calculator:inst4|ascii_buffer[16][6] ;
+; calculator:inst4|ascii_buffer[17][7]   ; Merged with calculator:inst4|ascii_buffer[17][6] ;
+; calculator:inst4|ascii_buffer[18][7]   ; Merged with calculator:inst4|ascii_buffer[18][6] ;
+; calculator:inst4|ascii_buffer[19][7]   ; Merged with calculator:inst4|ascii_buffer[19][6] ;
+; calculator:inst4|ascii_buffer[20][7]   ; Merged with calculator:inst4|ascii_buffer[20][6] ;
+; calculator:inst4|ascii_buffer[21][7]   ; Merged with calculator:inst4|ascii_buffer[21][6] ;
+; calculator:inst4|tx_data[7]            ; Merged with calculator:inst4|tx_data[6]          ;
+; calculator:inst4|ascii_buffer[0][5]    ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[0][6]    ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[1][5]    ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[2][5]    ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[3][5]    ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[4][5]    ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[5][5]    ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[6][5]    ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[7][5]    ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[8][5]    ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[9][5]    ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[10][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[11][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[12][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[13][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[14][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[15][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[16][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[17][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[18][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[19][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[20][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[21][5]   ; Stuck at VCC due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[1][6]    ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[2][6]    ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[3][6]    ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[4][6]    ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[5][6]    ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[6][6]    ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[7][6]    ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[8][6]    ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[9][6]    ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[10][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[11][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[12][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[13][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[14][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[15][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[16][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[17][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[18][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[19][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[20][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|ascii_buffer[21][6]   ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|tx_data[6]            ; Stuck at GND due to stuck port data_in           ;
+; calculator:inst4|operation~7           ; Lost fanout                                      ;
+; calculator:inst4|operation~8           ; Lost fanout                                      ;
+; calculator:inst4|state~24              ; Lost fanout                                      ;
+; calculator:inst4|state~25              ; Lost fanout                                      ;
+; calculator:inst4|state~26              ; Lost fanout                                      ;
+; calculator:inst4|state~27              ; Lost fanout                                      ;
+; calculator:inst4|state~28              ; Lost fanout                                      ;
+; calculator:inst4|state~29              ; Lost fanout                                      ;
+; calculator:inst4|state~30              ; Lost fanout                                      ;
+; uart_receive:inst3|state~6             ; Lost fanout                                      ;
+; uart_receive:inst3|state~7             ; Lost fanout                                      ;
+; Total Number of Removed Registers = 80 ;                                                  ;
++----------------------------------------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                              ;
++-------------------------------------+---------------------------+----------------------------------------+
+; Register name                       ; Reason for Removal        ; Registers Removed due to This Register ;
++-------------------------------------+---------------------------+----------------------------------------+
+; calculator:inst4|ascii_buffer[0][6] ; Stuck at GND              ; calculator:inst4|tx_data[6]            ;
+;                                     ; due to stuck port data_in ;                                        ;
++-------------------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 402   ;
+; Number of registers using Synchronous Clear  ; 118   ;
+; Number of registers using Synchronous Load   ; 69    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 311   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; uart_send:inst5|sfg[0]                 ; 1       ;
+; uart_send:inst5|sfg[1]                 ; 1       ;
+; uart_send:inst5|sfg[2]                 ; 1       ;
+; uart_send:inst5|sfg[3]                 ; 1       ;
+; uart_send:inst5|sfg[4]                 ; 1       ;
+; uart_send:inst5|sfg[5]                 ; 1       ;
+; uart_send:inst5|sfg[6]                 ; 1       ;
+; uart_send:inst5|sfg[7]                 ; 1       ;
+; uart_send:inst5|sfg[8]                 ; 1       ;
+; Total number of inverted registers = 9 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |assignment|uart_receive:inst3|samples[0]        ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |assignment|uart_send:inst5|send_cnt[4]          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |assignment|uart_send:inst5|cnt[2]               ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |assignment|uart_receive:inst3|cnt[10]           ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |assignment|uart_receive:inst3|cnt[9]            ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |assignment|calculator:inst4|send_index[1]       ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |assignment|uart_receive:inst3|rev_cnt[1]        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[21][6] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[21][0] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[20][6] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[20][2] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[19][6] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[19][0] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[18][5] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[18][0] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[17][5] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[17][2] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[16][5] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[16][2] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[15][5] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[15][2] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[14][5] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[14][1] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[13][5] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[13][2] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[12][5] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[12][3] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[11][6] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[11][0] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[10][5] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[10][0] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[9][6]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[9][3]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[8][6]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[8][1]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[7][5]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[7][3]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[6][5]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[6][3]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[5][5]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[5][3]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[4][5]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[4][3]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[3][6]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[3][0]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[2][6]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[2][1]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[1][5]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[1][1]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[0][6]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |assignment|calculator:inst4|ascii_buffer[0][1]  ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |assignment|calculator:inst4|buffer_len[2]       ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 2 LEs                ; 10 LEs                 ; Yes        ; |assignment|uart_receive:inst3|cnt3[1]           ;
+; 12:1               ; 63 bits   ; 504 LEs       ; 252 LEs              ; 252 LEs                ; Yes        ; |assignment|calculator:inst4|result[52]          ;
+; 30:1               ; 7 bits    ; 140 LEs       ; 105 LEs              ; 35 LEs                 ; Yes        ; |assignment|calculator:inst4|tx_data[1]          ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |assignment|uart_send:inst5|sfg[4]               ;
+; 6:1                ; 33 bits   ; 132 LEs       ; 33 LEs               ; 99 LEs                 ; Yes        ; |assignment|calculator:inst4|operator1[17]       ;
+; 6:1                ; 33 bits   ; 132 LEs       ; 33 LEs               ; 99 LEs                 ; Yes        ; |assignment|calculator:inst4|operator2[18]       ;
+; 7:1                ; 25 bits   ; 100 LEs       ; 50 LEs               ; 50 LEs                 ; Yes        ; |assignment|calculator:inst4|temp_operator[32]   ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 14 LEs               ; 21 LEs                 ; Yes        ; |assignment|calculator:inst4|temp_operator[1]    ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |assignment|uart_receive:inst3|Selector14        ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |assignment|uart_receive:inst3|Selector13        ;
+; 261:1              ; 4 bits    ; 696 LEs       ; 16 LEs               ; 680 LEs                ; No         ; |assignment|calculator:inst4|Selector217         ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 6 LEs                ; 10 LEs                 ; No         ; |assignment|calculator:inst4|Selector118         ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 4 LEs                ; 14 LEs                 ; No         ; |assignment|calculator:inst4|Selector130         ;
+; 19:1               ; 9 bits    ; 108 LEs       ; 18 LEs               ; 90 LEs                 ; No         ; |assignment|calculator:inst4|Selector110         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_receive:inst3 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; DIV_NUM        ; 1736  ; Signed Integer                         ;
+; WIDTH          ; 11    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_send:inst5 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; STOP           ; 1     ; Signed Integer                      ;
+; DIV_NUM        ; 5208  ; Signed Integer                      ;
+; WIDTH          ; 13    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: calculator:inst4|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 64             ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_8bm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: calculator:inst4|lpm_mult:Mult0    ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 33           ; Untyped             ;
+; LPM_WIDTHB                                     ; 33           ; Untyped             ;
+; LPM_WIDTHP                                     ; 66           ; Untyped             ;
+; LPM_WIDTHR                                     ; 66           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_86t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: calculator:inst4|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 33             ; Untyped                                 ;
+; LPM_WIDTHD             ; 33             ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_b2p ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: calculator:inst4|lpm_divide:Div1 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 64             ; Untyped                                 ;
+; LPM_WIDTHD             ; 5              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_u0p ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: calculator:inst4|lpm_mult:Mult1    ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 33           ; Untyped             ;
+; LPM_WIDTHB                                     ; 2            ; Untyped             ;
+; LPM_WIDTHP                                     ; 35           ; Untyped             ;
+; LPM_WIDTHR                                     ; 35           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_g4t     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                          ;
++---------------------------------------+---------------------------------+
+; Name                                  ; Value                           ;
++---------------------------------------+---------------------------------+
+; Number of entity instances            ; 2                               ;
+; Entity Instance                       ; calculator:inst4|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 33                              ;
+;     -- LPM_WIDTHB                     ; 33                              ;
+;     -- LPM_WIDTHP                     ; 66                              ;
+;     -- LPM_REPRESENTATION             ; SIGNED                          ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                              ;
+;     -- USE_EAB                        ; OFF                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                              ;
+; Entity Instance                       ; calculator:inst4|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 33                              ;
+;     -- LPM_WIDTHB                     ; 2                               ;
+;     -- LPM_WIDTHP                     ; 35                              ;
+;     -- LPM_REPRESENTATION             ; SIGNED                          ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                              ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                              ;
+;     -- USE_EAB                        ; OFF                             ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                            ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                              ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                              ;
++---------------------------------------+---------------------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "uart_send:inst5" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; rst  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 3                           ;
+; cycloneiii_ff         ; 402                         ;
+;     ENA               ; 200                         ;
+;     ENA SCLR          ; 42                          ;
+;     ENA SCLR SLD      ; 63                          ;
+;     ENA SLD           ; 6                           ;
+;     SCLR              ; 13                          ;
+;     plain             ; 78                          ;
+; cycloneiii_lcell_comb ; 4361                        ;
+;     arith             ; 1546                        ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 218                         ;
+;         3 data inputs ; 1327                        ;
+;     normal            ; 2815                        ;
+;         0 data inputs ; 155                         ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 844                         ;
+;         3 data inputs ; 210                         ;
+;         4 data inputs ; 1596                        ;
+; cycloneiii_mac_mult   ; 6                           ;
+; cycloneiii_mac_out    ; 6                           ;
+;                       ;                             ;
+; Max LUT depth         ; 188.30                      ;
+; Average LUT depth     ; 112.99                      ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sat May 18 14:53:11 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off assignment -c assignment
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file calculator.v
+    Info (12023): Found entity 1: calculator File: D:/Quartus/project/bigjob/calculator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file assignment.v
+    Info (12023): Found entity 1: assignment File: D:/Quartus/project/bigjob/assignment.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_send.v
+    Info (12023): Found entity 1: uart_send File: D:/Quartus/project/bigjob/uart_send.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file uart_receive.v
+    Info (12023): Found entity 1: uart_receive File: D:/Quartus/project/bigjob/uart_receive.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sim_cal.v
+    Info (12023): Found entity 1: sim_cal File: D:/Quartus/project/bigjob/sim_cal.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file block1.bdf
+    Info (12023): Found entity 1: Block1
+Info (12127): Elaborating entity "assignment" for the top level hierarchy
+Info (12128): Elaborating entity "uart_receive" for hierarchy "uart_receive:inst3" File: D:/Quartus/project/bigjob/assignment.v Line: 21
+Warning (10230): Verilog HDL assignment warning at uart_receive.v(37): truncated value with size 32 to match size of target (11) File: D:/Quartus/project/bigjob/uart_receive.v Line: 37
+Warning (10230): Verilog HDL assignment warning at uart_receive.v(53): truncated value with size 4 to match size of target (3) File: D:/Quartus/project/bigjob/uart_receive.v Line: 53
+Info (12128): Elaborating entity "calculator" for hierarchy "calculator:inst4" File: D:/Quartus/project/bigjob/assignment.v Line: 30
+Warning (10230): Verilog HDL assignment warning at calculator.v(37): truncated value with size 32 to match size of target (4) File: D:/Quartus/project/bigjob/calculator.v Line: 37
+Warning (10855): Verilog HDL warning at calculator.v(33): initial value for variable ascii_buffer should be constant File: D:/Quartus/project/bigjob/calculator.v Line: 33
+Info (10264): Verilog HDL Case Statement information at calculator.v(47): all case item expressions in this case statement are onehot File: D:/Quartus/project/bigjob/calculator.v Line: 47
+Warning (10230): Verilog HDL assignment warning at calculator.v(89): truncated value with size 32 to match size of target (3) File: D:/Quartus/project/bigjob/calculator.v Line: 89
+Warning (10230): Verilog HDL assignment warning at calculator.v(140): truncated value with size 32 to match size of target (3) File: D:/Quartus/project/bigjob/calculator.v Line: 140
+Info (10264): Verilog HDL Case Statement information at calculator.v(191): all case item expressions in this case statement are onehot File: D:/Quartus/project/bigjob/calculator.v Line: 191
+Warning (10230): Verilog HDL assignment warning at calculator.v(204): truncated value with size 32 to match size of target (6) File: D:/Quartus/project/bigjob/calculator.v Line: 204
+Warning (10230): Verilog HDL assignment warning at calculator.v(208): truncated value with size 32 to match size of target (6) File: D:/Quartus/project/bigjob/calculator.v Line: 208
+Warning (10230): Verilog HDL assignment warning at calculator.v(225): truncated value with size 64 to match size of target (8) File: D:/Quartus/project/bigjob/calculator.v Line: 225
+Warning (10230): Verilog HDL assignment warning at calculator.v(233): truncated value with size 32 to match size of target (6) File: D:/Quartus/project/bigjob/calculator.v Line: 233
+Warning (10230): Verilog HDL assignment warning at calculator.v(242): truncated value with size 32 to match size of target (6) File: D:/Quartus/project/bigjob/calculator.v Line: 242
+Warning (10230): Verilog HDL assignment warning at calculator.v(248): truncated value with size 32 to match size of target (6) File: D:/Quartus/project/bigjob/calculator.v Line: 248
+Warning (10230): Verilog HDL assignment warning at calculator.v(252): truncated value with size 32 to match size of target (6) File: D:/Quartus/project/bigjob/calculator.v Line: 252
+Warning (10230): Verilog HDL assignment warning at calculator.v(262): truncated value with size 32 to match size of target (6) File: D:/Quartus/project/bigjob/calculator.v Line: 262
+Info (12128): Elaborating entity "uart_send" for hierarchy "uart_send:inst5" File: D:/Quartus/project/bigjob/assignment.v Line: 38
+Warning (10036): Verilog HDL or VHDL warning at uart_send.v(16): object "send_en" assigned a value but never read File: D:/Quartus/project/bigjob/uart_send.v Line: 16
+Info (278001): Inferred 5 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "calculator:inst4|Mod0" File: D:/Quartus/project/bigjob/calculator.v Line: 78
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "calculator:inst4|Mult0" File: D:/Quartus/project/bigjob/calculator.v Line: 74
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "calculator:inst4|Div0" File: D:/Quartus/project/bigjob/calculator.v Line: 75
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "calculator:inst4|Div1" File: D:/Quartus/project/bigjob/calculator.v Line: 229
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "calculator:inst4|Mult1" File: D:/Quartus/project/bigjob/calculator.v Line: 77
+Info (12130): Elaborated megafunction instantiation "calculator:inst4|lpm_divide:Mod0" File: D:/Quartus/project/bigjob/calculator.v Line: 78
+Info (12133): Instantiated megafunction "calculator:inst4|lpm_divide:Mod0" with the following parameter: File: D:/Quartus/project/bigjob/calculator.v Line: 78
+    Info (12134): Parameter "LPM_WIDTHN" = "64"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_8bm.tdf
+    Info (12023): Found entity 1: lpm_divide_8bm File: D:/Quartus/project/bigjob/db/lpm_divide_8bm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_tlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_tlh File: D:/Quartus/project/bigjob/db/sign_div_unsign_tlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_e7f.tdf
+    Info (12023): Found entity 1: alt_u_div_e7f File: D:/Quartus/project/bigjob/db/alt_u_div_e7f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: D:/Quartus/project/bigjob/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: D:/Quartus/project/bigjob/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "calculator:inst4|lpm_mult:Mult0" File: D:/Quartus/project/bigjob/calculator.v Line: 74
+Info (12133): Instantiated megafunction "calculator:inst4|lpm_mult:Mult0" with the following parameter: File: D:/Quartus/project/bigjob/calculator.v Line: 74
+    Info (12134): Parameter "LPM_WIDTHA" = "33"
+    Info (12134): Parameter "LPM_WIDTHB" = "33"
+    Info (12134): Parameter "LPM_WIDTHP" = "66"
+    Info (12134): Parameter "LPM_WIDTHR" = "66"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_86t.tdf
+    Info (12023): Found entity 1: mult_86t File: D:/Quartus/project/bigjob/db/mult_86t.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "calculator:inst4|lpm_divide:Div0" File: D:/Quartus/project/bigjob/calculator.v Line: 75
+Info (12133): Instantiated megafunction "calculator:inst4|lpm_divide:Div0" with the following parameter: File: D:/Quartus/project/bigjob/calculator.v Line: 75
+    Info (12134): Parameter "LPM_WIDTHN" = "33"
+    Info (12134): Parameter "LPM_WIDTHD" = "33"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_b2p.tdf
+    Info (12023): Found entity 1: lpm_divide_b2p File: D:/Quartus/project/bigjob/db/lpm_divide_b2p.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_6dg.tdf
+    Info (12023): Found entity 1: abs_divider_6dg File: D:/Quartus/project/bigjob/db/abs_divider_6dg.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_aaf.tdf
+    Info (12023): Found entity 1: alt_u_div_aaf File: D:/Quartus/project/bigjob/db/alt_u_div_aaf.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_j0a.tdf
+    Info (12023): Found entity 1: lpm_abs_j0a File: D:/Quartus/project/bigjob/db/lpm_abs_j0a.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "calculator:inst4|lpm_divide:Div1" File: D:/Quartus/project/bigjob/calculator.v Line: 229
+Info (12133): Instantiated megafunction "calculator:inst4|lpm_divide:Div1" with the following parameter: File: D:/Quartus/project/bigjob/calculator.v Line: 229
+    Info (12134): Parameter "LPM_WIDTHN" = "64"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_u0p.tdf
+    Info (12023): Found entity 1: lpm_divide_u0p File: D:/Quartus/project/bigjob/db/lpm_divide_u0p.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_pbg.tdf
+    Info (12023): Found entity 1: abs_divider_pbg File: D:/Quartus/project/bigjob/db/abs_divider_pbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_g7f.tdf
+    Info (12023): Found entity 1: alt_u_div_g7f File: D:/Quartus/project/bigjob/db/alt_u_div_g7f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
+    Info (12023): Found entity 1: lpm_abs_2v9 File: D:/Quartus/project/bigjob/db/lpm_abs_2v9.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_n0a.tdf
+    Info (12023): Found entity 1: lpm_abs_n0a File: D:/Quartus/project/bigjob/db/lpm_abs_n0a.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "calculator:inst4|lpm_mult:Mult1" File: D:/Quartus/project/bigjob/calculator.v Line: 77
+Info (12133): Instantiated megafunction "calculator:inst4|lpm_mult:Mult1" with the following parameter: File: D:/Quartus/project/bigjob/calculator.v Line: 77
+    Info (12134): Parameter "LPM_WIDTHA" = "33"
+    Info (12134): Parameter "LPM_WIDTHB" = "2"
+    Info (12134): Parameter "LPM_WIDTHP" = "35"
+    Info (12134): Parameter "LPM_WIDTHR" = "35"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_g4t.tdf
+    Info (12023): Found entity 1: mult_g4t File: D:/Quartus/project/bigjob/db/mult_g4t.tdf Line: 31
+Info (13014): Ignored 437 buffer(s)
+    Info (13016): Ignored 127 CARRY_SUM buffer(s)
+    Info (13019): Ignored 310 SOFT buffer(s)
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/Quartus/project/bigjob/output_files/assignment.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 4435 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 4420 logic cells
+    Info (21062): Implemented 12 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 4884 megabytes
+    Info: Processing ended: Sat May 18 14:53:19 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:04
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Quartus/project/bigjob/output_files/assignment.map.smsg.
+
+

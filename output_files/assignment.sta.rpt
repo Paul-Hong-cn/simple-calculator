@@ -1,0 +1,1175 @@
+Timing Analyzer report for assignment
+Sat May 18 14:53:36 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Hold: 'clk'
+ 14. Slow 1200mV 85C Model Metastability Summary
+ 15. Slow 1200mV 0C Model Fmax Summary
+ 16. Slow 1200mV 0C Model Setup Summary
+ 17. Slow 1200mV 0C Model Hold Summary
+ 18. Slow 1200mV 0C Model Recovery Summary
+ 19. Slow 1200mV 0C Model Removal Summary
+ 20. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 21. Slow 1200mV 0C Model Setup: 'clk'
+ 22. Slow 1200mV 0C Model Hold: 'clk'
+ 23. Slow 1200mV 0C Model Metastability Summary
+ 24. Fast 1200mV 0C Model Setup Summary
+ 25. Fast 1200mV 0C Model Hold Summary
+ 26. Fast 1200mV 0C Model Recovery Summary
+ 27. Fast 1200mV 0C Model Removal Summary
+ 28. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 29. Fast 1200mV 0C Model Setup: 'clk'
+ 30. Fast 1200mV 0C Model Hold: 'clk'
+ 31. Fast 1200mV 0C Model Metastability Summary
+ 32. Multicorner Timing Analysis Summary
+ 33. Board Trace Model Assignments
+ 34. Input Transition Times
+ 35. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 36. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 37. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 38. Setup Transfers
+ 39. Hold Transfers
+ 40. Report TCCS
+ 41. Report RSKM
+ 42. Unconstrained Paths Summary
+ 43. Clock Status Summary
+ 44. Unconstrained Input Ports
+ 45. Unconstrained Output Ports
+ 46. Unconstrained Input Ports
+ 47. Unconstrained Output Ports
+ 48. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; assignment                                          ;
+; Device Family         ; Cyclone IV E                                        ;
+; Device Name           ; EP4CE6F17C8                                         ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 10          ;
+;                            ;             ;
+; Average used               ; 2.35        ;
+; Maximum used               ; 10          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;  54.6%      ;
+;     Processor 3            ;  52.6%      ;
+;     Processor 4            ;  10.3%      ;
+;     Processors 5-10        ;   2.8%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary             ;
++----------+-----------------+------------+------+
+; Fmax     ; Restricted Fmax ; Clock Name ; Note ;
++----------+-----------------+------------+------+
+; 4.97 MHz ; 4.97 MHz        ; clk        ;      ;
++----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+----------+------------------+
+; Clock ; Slack    ; End Point TNS    ;
++-------+----------+------------------+
+; clk   ; -200.330 ; -26723.518       ;
++-------+----------+------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.452 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -4.000 ; -882.348                         ;
++-------+--------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                         ;
++----------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack    ; From Node                   ; To Node                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++----------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; -200.330 ; calculator:inst4|result[4]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.053     ; 201.278    ;
+; -200.318 ; calculator:inst4|result[4]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.054     ; 201.265    ;
+; -200.208 ; calculator:inst4|result[4]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.053     ; 201.156    ;
+; -200.109 ; calculator:inst4|result[5]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.053     ; 201.057    ;
+; -200.097 ; calculator:inst4|result[5]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.054     ; 201.044    ;
+; -200.095 ; calculator:inst4|result[6]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.053     ; 201.043    ;
+; -200.085 ; calculator:inst4|result[7]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.053     ; 201.033    ;
+; -200.083 ; calculator:inst4|result[6]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.054     ; 201.030    ;
+; -200.073 ; calculator:inst4|result[7]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.054     ; 201.020    ;
+; -200.009 ; calculator:inst4|result[4]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.929    ;
+; -199.988 ; calculator:inst4|result[4]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.936    ;
+; -199.987 ; calculator:inst4|result[5]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.935    ;
+; -199.973 ; calculator:inst4|result[6]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.921    ;
+; -199.963 ; calculator:inst4|result[3]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.911    ;
+; -199.963 ; calculator:inst4|result[7]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.911    ;
+; -199.951 ; calculator:inst4|result[3]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.054     ; 200.898    ;
+; -199.925 ; calculator:inst4|result[63] ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.873    ;
+; -199.913 ; calculator:inst4|result[63] ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.054     ; 200.860    ;
+; -199.911 ; calculator:inst4|result[4]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.086     ; 200.826    ;
+; -199.879 ; calculator:inst4|result[1]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.057     ; 200.823    ;
+; -199.867 ; calculator:inst4|result[1]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.058     ; 200.810    ;
+; -199.841 ; calculator:inst4|result[3]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.789    ;
+; -199.803 ; calculator:inst4|result[63] ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.751    ;
+; -199.788 ; calculator:inst4|result[5]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.708    ;
+; -199.774 ; calculator:inst4|result[6]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.694    ;
+; -199.767 ; calculator:inst4|result[5]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.715    ;
+; -199.764 ; calculator:inst4|result[7]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.684    ;
+; -199.757 ; calculator:inst4|result[1]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.057     ; 200.701    ;
+; -199.753 ; calculator:inst4|result[6]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.701    ;
+; -199.743 ; calculator:inst4|result[7]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.691    ;
+; -199.713 ; calculator:inst4|result[4]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.633    ;
+; -199.690 ; calculator:inst4|result[5]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.086     ; 200.605    ;
+; -199.676 ; calculator:inst4|result[6]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.086     ; 200.591    ;
+; -199.666 ; calculator:inst4|result[7]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.086     ; 200.581    ;
+; -199.642 ; calculator:inst4|result[3]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.562    ;
+; -199.621 ; calculator:inst4|result[3]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.569    ;
+; -199.604 ; calculator:inst4|result[63] ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.524    ;
+; -199.583 ; calculator:inst4|result[63] ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.531    ;
+; -199.558 ; calculator:inst4|result[1]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.085     ; 200.474    ;
+; -199.548 ; calculator:inst4|result[4]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.468    ;
+; -199.544 ; calculator:inst4|result[3]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.086     ; 200.459    ;
+; -199.537 ; calculator:inst4|result[1]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.057     ; 200.481    ;
+; -199.520 ; calculator:inst4|result[9]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.044     ; 200.477    ;
+; -199.508 ; calculator:inst4|result[0]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.456    ;
+; -199.508 ; calculator:inst4|result[9]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.045     ; 200.464    ;
+; -199.506 ; calculator:inst4|result[63] ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.086     ; 200.421    ;
+; -199.496 ; calculator:inst4|result[0]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.054     ; 200.443    ;
+; -199.492 ; calculator:inst4|result[5]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.412    ;
+; -199.478 ; calculator:inst4|result[6]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.398    ;
+; -199.468 ; calculator:inst4|result[7]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.388    ;
+; -199.460 ; calculator:inst4|result[1]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.090     ; 200.371    ;
+; -199.450 ; calculator:inst4|result[4]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.091     ; 200.360    ;
+; -199.398 ; calculator:inst4|result[9]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.044     ; 200.355    ;
+; -199.386 ; calculator:inst4|result[0]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.334    ;
+; -199.361 ; calculator:inst4|result[4]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.082     ; 200.280    ;
+; -199.359 ; calculator:inst4|result[2]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.056     ; 200.304    ;
+; -199.347 ; calculator:inst4|result[2]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.057     ; 200.291    ;
+; -199.346 ; calculator:inst4|result[3]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.266    ;
+; -199.327 ; calculator:inst4|result[5]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.247    ;
+; -199.313 ; calculator:inst4|result[6]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.233    ;
+; -199.308 ; calculator:inst4|result[63] ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.228    ;
+; -199.303 ; calculator:inst4|result[7]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.223    ;
+; -199.262 ; calculator:inst4|result[1]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.085     ; 200.178    ;
+; -199.237 ; calculator:inst4|result[2]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.056     ; 200.182    ;
+; -199.229 ; calculator:inst4|result[5]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.091     ; 200.139    ;
+; -199.215 ; calculator:inst4|result[6]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.091     ; 200.125    ;
+; -199.213 ; calculator:inst4|result[4]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.076     ; 200.138    ;
+; -199.208 ; calculator:inst4|result[4]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.076     ; 200.133    ;
+; -199.205 ; calculator:inst4|result[7]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.091     ; 200.115    ;
+; -199.199 ; calculator:inst4|result[9]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.072     ; 200.128    ;
+; -199.187 ; calculator:inst4|result[0]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.107    ;
+; -199.181 ; calculator:inst4|result[3]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.101    ;
+; -199.178 ; calculator:inst4|result[9]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.044     ; 200.135    ;
+; -199.166 ; calculator:inst4|result[0]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.053     ; 200.114    ;
+; -199.143 ; calculator:inst4|result[63] ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.081     ; 200.063    ;
+; -199.140 ; calculator:inst4|result[5]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.082     ; 200.059    ;
+; -199.126 ; calculator:inst4|result[6]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.082     ; 200.045    ;
+; -199.116 ; calculator:inst4|result[7]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.082     ; 200.035    ;
+; -199.109 ; calculator:inst4|result[4]  ; calculator:inst4|result[52] ; clk          ; clk         ; 1.000        ; -0.075     ; 200.035    ;
+; -199.101 ; calculator:inst4|result[4]  ; calculator:inst4|result[49] ; clk          ; clk         ; 1.000        ; -0.082     ; 200.020    ;
+; -199.101 ; calculator:inst4|result[9]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.077     ; 200.025    ;
+; -199.097 ; calculator:inst4|result[1]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.085     ; 200.013    ;
+; -199.089 ; calculator:inst4|result[0]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.086     ; 200.004    ;
+; -199.083 ; calculator:inst4|result[3]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.091     ; 199.993    ;
+; -199.045 ; calculator:inst4|result[63] ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.091     ; 199.955    ;
+; -199.038 ; calculator:inst4|result[2]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.084     ; 199.955    ;
+; -199.017 ; calculator:inst4|result[2]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.056     ; 199.962    ;
+; -199.002 ; calculator:inst4|result[8]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.053     ; 199.950    ;
+; -198.999 ; calculator:inst4|result[1]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.095     ; 199.905    ;
+; -198.994 ; calculator:inst4|result[3]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.082     ; 199.913    ;
+; -198.992 ; calculator:inst4|result[5]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.076     ; 199.917    ;
+; -198.990 ; calculator:inst4|result[8]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.054     ; 199.937    ;
+; -198.987 ; calculator:inst4|result[4]  ; calculator:inst4|result[46] ; clk          ; clk         ; 1.000        ; -0.086     ; 199.902    ;
+; -198.987 ; calculator:inst4|result[5]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.076     ; 199.912    ;
+; -198.978 ; calculator:inst4|result[6]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.076     ; 199.903    ;
+; -198.973 ; calculator:inst4|result[6]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.076     ; 199.898    ;
+; -198.968 ; calculator:inst4|result[7]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.076     ; 199.893    ;
+; -198.963 ; calculator:inst4|result[7]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.076     ; 199.888    ;
+; -198.956 ; calculator:inst4|result[63] ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.082     ; 199.875    ;
+; -198.940 ; calculator:inst4|result[2]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.089     ; 199.852    ;
++----------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                                             ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.452 ; calculator:inst4|ascii_buffer[12][4]   ; calculator:inst4|ascii_buffer[12][4]   ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|ascii_buffer[13][4]   ; calculator:inst4|ascii_buffer[13][4]   ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|ascii_buffer[15][4]   ; calculator:inst4|ascii_buffer[15][4]   ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|ascii_buffer[14][4]   ; calculator:inst4|ascii_buffer[14][4]   ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|ascii_buffer[9][4]    ; calculator:inst4|ascii_buffer[9][4]    ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|ascii_buffer[11][4]   ; calculator:inst4|ascii_buffer[11][4]   ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|ascii_buffer[17][4]   ; calculator:inst4|ascii_buffer[17][4]   ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|ascii_buffer[16][4]   ; calculator:inst4|ascii_buffer[16][4]   ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; uart_send:inst5|busy                   ; uart_send:inst5|busy                   ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; uart_send:inst5|cnt[1]                 ; uart_send:inst5|cnt[1]                 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|tx_en                 ; calculator:inst4|tx_en                 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|state.CHECK_SIGN2     ; calculator:inst4|state.CHECK_SIGN2     ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|state.WAIT5           ; calculator:inst4|state.WAIT5           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|state.WAIT1           ; calculator:inst4|state.WAIT1           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|state.CHECK_SIGN1     ; calculator:inst4|state.CHECK_SIGN1     ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|operation.100         ; calculator:inst4|operation.100         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|sign[1]~_Duplicate_2  ; calculator:inst4|sign[1]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|sign[0]~_Duplicate_2  ; calculator:inst4|sign[0]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|operation.000         ; calculator:inst4|operation.000         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|operation.001         ; calculator:inst4|operation.001         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|operation.011         ; calculator:inst4|operation.011         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|operation.010         ; calculator:inst4|operation.010         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|temp_operator[32]     ; calculator:inst4|temp_operator[32]     ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; calculator:inst4|temp_operator[0]      ; calculator:inst4|temp_operator[0]      ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; uart_receive:inst3|data_en             ; uart_receive:inst3|data_en             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; uart_receive:inst3|state.01            ; uart_receive:inst3|state.01            ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; uart_receive:inst3|state.10            ; uart_receive:inst3|state.10            ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; uart_receive:inst3|state.00            ; uart_receive:inst3|state.00            ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; uart_receive:inst3|cnt3[0]             ; uart_receive:inst3|cnt3[0]             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; uart_receive:inst3|cnt3[1]             ; uart_receive:inst3|cnt3[1]             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; uart_receive:inst3|rev_cnt[2]          ; uart_receive:inst3|rev_cnt[2]          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; uart_receive:inst3|rev_cnt[1]          ; uart_receive:inst3|rev_cnt[1]          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[10][4]   ; calculator:inst4|ascii_buffer[10][4]   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[8][4]    ; calculator:inst4|ascii_buffer[8][4]    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[21][4]   ; calculator:inst4|ascii_buffer[21][4]   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[20][4]   ; calculator:inst4|ascii_buffer[20][4]   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[2][4]    ; calculator:inst4|ascii_buffer[2][4]    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[1][4]    ; calculator:inst4|ascii_buffer[1][4]    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[3][4]    ; calculator:inst4|ascii_buffer[3][4]    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[18][4]   ; calculator:inst4|ascii_buffer[18][4]   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[19][4]   ; calculator:inst4|ascii_buffer[19][4]   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|result[0]             ; calculator:inst4|result[0]             ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[0][4]    ; calculator:inst4|ascii_buffer[0][4]    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[6][4]    ; calculator:inst4|ascii_buffer[6][4]    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[4][4]    ; calculator:inst4|ascii_buffer[4][4]    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[7][4]    ; calculator:inst4|ascii_buffer[7][4]    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; calculator:inst4|ascii_buffer[5][4]    ; calculator:inst4|ascii_buffer[5][4]    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.464 ; uart_send:inst5|cnt[0]                 ; uart_send:inst5|cnt[0]                 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.758      ;
+; 0.464 ; uart_receive:inst3|rev_cnt[0]          ; uart_receive:inst3|rev_cnt[0]          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.758      ;
+; 0.464 ; uart_receive:inst3|state.11            ; uart_receive:inst3|state.11            ; clk          ; clk         ; 0.000        ; 0.082      ; 0.758      ;
+; 0.497 ; calculator:inst4|state.WAIT15          ; calculator:inst4|sign[0]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.082      ; 0.791      ;
+; 0.498 ; calculator:inst4|state.WAIT15          ; calculator:inst4|sign[1]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.082      ; 0.792      ;
+; 0.498 ; uart_receive:inst3|rev_cnt[0]          ; uart_receive:inst3|rev_cnt[1]          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.792      ;
+; 0.500 ; calculator:inst4|state.WAIT8           ; calculator:inst4|state.READ_OP2        ; clk          ; clk         ; 0.000        ; 0.082      ; 0.794      ;
+; 0.500 ; uart_receive:inst3|data_sfg[0]         ; uart_receive:inst3|data_out[0]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.794      ;
+; 0.501 ; calculator:inst4|state.WAIT5           ; calculator:inst4|state.WAIT6           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.795      ;
+; 0.501 ; uart_receive:inst3|rev_cnt[0]          ; uart_receive:inst3|rev_cnt[2]          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.795      ;
+; 0.502 ; calculator:inst4|state.WAIT12          ; calculator:inst4|state.CONVERT_RESULT2 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.796      ;
+; 0.502 ; calculator:inst4|state.WAIT1           ; calculator:inst4|state.WAIT2           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.796      ;
+; 0.506 ; uart_receive:inst3|data_sfg[2]         ; uart_receive:inst3|data_sfg[1]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.800      ;
+; 0.507 ; uart_send:inst5|send_cnt[12]           ; uart_send:inst5|send_cnt[12]           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.801      ;
+; 0.509 ; calculator:inst4|state.EMPTY4          ; calculator:inst4|state.EMPTY5          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.802      ;
+; 0.509 ; calculator:inst4|state.EMPTY5          ; calculator:inst4|state.CALC            ; clk          ; clk         ; 0.000        ; 0.081      ; 0.802      ;
+; 0.509 ; uart_receive:inst3|data_sfg[6]         ; uart_receive:inst3|data_sfg[5]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.803      ;
+; 0.509 ; uart_receive:inst3|data_sfg[7]         ; uart_receive:inst3|data_out[7]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.803      ;
+; 0.510 ; calculator:inst4|state.EMPTY3          ; calculator:inst4|state.EMPTY4          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.803      ;
+; 0.510 ; uart_receive:inst3|data_sfg[2]         ; uart_receive:inst3|data_out[2]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.804      ;
+; 0.510 ; uart_receive:inst3|data_sfg[5]         ; uart_receive:inst3|data_out[5]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.804      ;
+; 0.510 ; uart_receive:inst3|data_sfg[5]         ; uart_receive:inst3|data_sfg[4]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.804      ;
+; 0.510 ; uart_receive:inst3|data_sfg[6]         ; uart_receive:inst3|data_out[6]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.804      ;
+; 0.510 ; uart_receive:inst3|data_sfg[7]         ; uart_receive:inst3|data_sfg[6]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.804      ;
+; 0.513 ; calculator:inst4|state.EMPTY2          ; calculator:inst4|state.EMPTY3          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.806      ;
+; 0.514 ; uart_receive:inst3|rx_buf[0]           ; uart_receive:inst3|rx_buf[1]           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.808      ;
+; 0.516 ; calculator:inst4|state.WAIT14          ; calculator:inst4|state.WAIT15          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.810      ;
+; 0.517 ; calculator:inst4|state.WAIT15          ; calculator:inst4|state.WAIT16          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.811      ;
+; 0.518 ; calculator:inst4|state.WAIT16          ; calculator:inst4|state.CHECK_SIGN1     ; clk          ; clk         ; 0.000        ; 0.082      ; 0.812      ;
+; 0.531 ; calculator:inst4|buffer_len[5]         ; calculator:inst4|buffer_len[5]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.825      ;
+; 0.534 ; calculator:inst4|send_index[5]         ; calculator:inst4|send_index[5]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.828      ;
+; 0.539 ; calculator:inst4|state.CONVERT_RESULT2 ; calculator:inst4|state.WAIT9           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.833      ;
+; 0.540 ; calculator:inst4|state.CONVERT_RESULT2 ; calculator:inst4|state.SEND_RESULT     ; clk          ; clk         ; 0.000        ; 0.082      ; 0.834      ;
+; 0.542 ; calculator:inst4|state.CALC            ; calculator:inst4|state.CONVERT_RESULT1 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.835      ;
+; 0.551 ; uart_send:inst5|busy                   ; uart_send:inst5|cnt[3]                 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.845      ;
+; 0.551 ; uart_send:inst5|busy                   ; uart_send:inst5|cnt[2]                 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.845      ;
+; 0.551 ; uart_send:inst5|busy                   ; uart_send:inst5|cnt[0]                 ; clk          ; clk         ; 0.000        ; 0.082      ; 0.845      ;
+; 0.628 ; calculator:inst4|tx_data[3]            ; uart_send:inst5|sfg[4]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.921      ;
+; 0.643 ; uart_send:inst5|sfg[4]                 ; uart_send:inst5|sfg[3]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.936      ;
+; 0.697 ; calculator:inst4|state.EMPTY7          ; calculator:inst4|state.EMPTY8          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.991      ;
+; 0.698 ; calculator:inst4|state.EMPTY9          ; calculator:inst4|state.EMPTY10         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.992      ;
+; 0.698 ; calculator:inst4|state.EMPTY8          ; calculator:inst4|state.EMPTY9          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.992      ;
+; 0.699 ; calculator:inst4|state.WAIT9           ; calculator:inst4|state.WAIT10          ; clk          ; clk         ; 0.000        ; 0.082      ; 0.993      ;
+; 0.700 ; calculator:inst4|state.EMPTY6          ; calculator:inst4|state.EMPTY7          ; clk          ; clk         ; 0.000        ; 0.083      ; 0.995      ;
+; 0.705 ; uart_receive:inst3|data_sfg[4]         ; uart_receive:inst3|data_out[4]         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.999      ;
+; 0.706 ; uart_receive:inst3|data_sfg[1]         ; uart_receive:inst3|data_sfg[0]         ; clk          ; clk         ; 0.000        ; 0.082      ; 1.000      ;
+; 0.707 ; uart_receive:inst3|data_sfg[1]         ; uart_receive:inst3|data_out[1]         ; clk          ; clk         ; 0.000        ; 0.082      ; 1.001      ;
+; 0.708 ; uart_receive:inst3|data_sfg[4]         ; uart_receive:inst3|data_sfg[3]         ; clk          ; clk         ; 0.000        ; 0.082      ; 1.002      ;
+; 0.723 ; calculator:inst4|state.WAIT6           ; calculator:inst4|state.WAIT7           ; clk          ; clk         ; 0.000        ; 0.082      ; 1.017      ;
+; 0.724 ; calculator:inst4|state.WAIT2           ; calculator:inst4|state.WAIT3           ; clk          ; clk         ; 0.000        ; 0.082      ; 1.018      ;
+; 0.741 ; uart_send:inst5|sfg[2]                 ; uart_send:inst5|sfg[1]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 1.034      ;
+; 0.741 ; uart_send:inst5|sfg[3]                 ; uart_send:inst5|sfg[2]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 1.034      ;
+; 0.742 ; uart_send:inst5|sfg[7]                 ; uart_send:inst5|sfg[6]                 ; clk          ; clk         ; 0.000        ; 0.081      ; 1.035      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary              ;
++----------+-----------------+------------+------+
+; Fmax     ; Restricted Fmax ; Clock Name ; Note ;
++----------+-----------------+------------+------+
+; 5.43 MHz ; 5.43 MHz        ; clk        ;      ;
++----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+----------+-----------------+
+; Clock ; Slack    ; End Point TNS   ;
++-------+----------+-----------------+
+; clk   ; -183.241 ; -24517.848      ;
++-------+----------+-----------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.400 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -4.000 ; -880.942                        ;
++-------+--------+---------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                          ;
++----------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack    ; From Node                   ; To Node                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++----------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; -183.241 ; calculator:inst4|result[4]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.048     ; 184.195    ;
+; -183.185 ; calculator:inst4|result[4]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.044     ; 184.143    ;
+; -183.079 ; calculator:inst4|result[4]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.044     ; 184.037    ;
+; -183.053 ; calculator:inst4|result[5]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.048     ; 184.007    ;
+; -183.020 ; calculator:inst4|result[6]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.048     ; 183.974    ;
+; -183.014 ; calculator:inst4|result[7]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.048     ; 183.968    ;
+; -182.997 ; calculator:inst4|result[5]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.955    ;
+; -182.964 ; calculator:inst4|result[6]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.922    ;
+; -182.958 ; calculator:inst4|result[7]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.916    ;
+; -182.932 ; calculator:inst4|result[4]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.890    ;
+; -182.918 ; calculator:inst4|result[3]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.048     ; 183.872    ;
+; -182.891 ; calculator:inst4|result[5]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.849    ;
+; -182.888 ; calculator:inst4|result[4]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.817    ;
+; -182.874 ; calculator:inst4|result[63] ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.048     ; 183.828    ;
+; -182.862 ; calculator:inst4|result[3]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.820    ;
+; -182.858 ; calculator:inst4|result[6]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.816    ;
+; -182.852 ; calculator:inst4|result[7]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.810    ;
+; -182.818 ; calculator:inst4|result[63] ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.776    ;
+; -182.790 ; calculator:inst4|result[4]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.077     ; 183.715    ;
+; -182.760 ; calculator:inst4|result[1]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.051     ; 183.711    ;
+; -182.756 ; calculator:inst4|result[3]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.714    ;
+; -182.744 ; calculator:inst4|result[5]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.702    ;
+; -182.712 ; calculator:inst4|result[63] ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.670    ;
+; -182.711 ; calculator:inst4|result[6]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.669    ;
+; -182.705 ; calculator:inst4|result[7]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.663    ;
+; -182.704 ; calculator:inst4|result[1]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.047     ; 183.659    ;
+; -182.700 ; calculator:inst4|result[5]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.629    ;
+; -182.667 ; calculator:inst4|result[6]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.596    ;
+; -182.661 ; calculator:inst4|result[7]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.590    ;
+; -182.631 ; calculator:inst4|result[4]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.560    ;
+; -182.609 ; calculator:inst4|result[3]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.567    ;
+; -182.602 ; calculator:inst4|result[5]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.077     ; 183.527    ;
+; -182.598 ; calculator:inst4|result[1]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.047     ; 183.553    ;
+; -182.569 ; calculator:inst4|result[6]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.077     ; 183.494    ;
+; -182.565 ; calculator:inst4|result[3]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.494    ;
+; -182.565 ; calculator:inst4|result[63] ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.044     ; 183.523    ;
+; -182.563 ; calculator:inst4|result[7]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.077     ; 183.488    ;
+; -182.550 ; calculator:inst4|result[4]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.479    ;
+; -182.521 ; calculator:inst4|result[63] ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.450    ;
+; -182.504 ; calculator:inst4|result[9]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.041     ; 183.465    ;
+; -182.467 ; calculator:inst4|result[3]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.077     ; 183.392    ;
+; -182.451 ; calculator:inst4|result[1]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.047     ; 183.406    ;
+; -182.448 ; calculator:inst4|result[9]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.037     ; 183.413    ;
+; -182.443 ; calculator:inst4|result[5]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.372    ;
+; -182.440 ; calculator:inst4|result[0]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.049     ; 183.393    ;
+; -182.423 ; calculator:inst4|result[63] ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.077     ; 183.348    ;
+; -182.410 ; calculator:inst4|result[6]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.339    ;
+; -182.407 ; calculator:inst4|result[1]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.076     ; 183.333    ;
+; -182.404 ; calculator:inst4|result[7]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.333    ;
+; -182.387 ; calculator:inst4|result[4]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.074     ; 183.315    ;
+; -182.384 ; calculator:inst4|result[0]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.045     ; 183.341    ;
+; -182.362 ; calculator:inst4|result[5]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.291    ;
+; -182.342 ; calculator:inst4|result[9]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.037     ; 183.307    ;
+; -182.329 ; calculator:inst4|result[6]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.258    ;
+; -182.323 ; calculator:inst4|result[4]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.080     ; 183.245    ;
+; -182.323 ; calculator:inst4|result[7]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.252    ;
+; -182.309 ; calculator:inst4|result[1]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.080     ; 183.231    ;
+; -182.308 ; calculator:inst4|result[3]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.237    ;
+; -182.306 ; calculator:inst4|result[2]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.050     ; 183.258    ;
+; -182.278 ; calculator:inst4|result[0]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.045     ; 183.235    ;
+; -182.264 ; calculator:inst4|result[63] ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.193    ;
+; -182.250 ; calculator:inst4|result[2]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.046     ; 183.206    ;
+; -182.227 ; calculator:inst4|result[3]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.156    ;
+; -182.212 ; calculator:inst4|result[4]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.069     ; 183.145    ;
+; -182.199 ; calculator:inst4|result[5]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.074     ; 183.127    ;
+; -182.195 ; calculator:inst4|result[9]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.037     ; 183.160    ;
+; -182.183 ; calculator:inst4|result[63] ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.073     ; 183.112    ;
+; -182.166 ; calculator:inst4|result[6]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.074     ; 183.094    ;
+; -182.160 ; calculator:inst4|result[7]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.074     ; 183.088    ;
+; -182.158 ; calculator:inst4|result[4]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.069     ; 183.091    ;
+; -182.151 ; calculator:inst4|result[9]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.066     ; 183.087    ;
+; -182.150 ; calculator:inst4|result[1]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.076     ; 183.076    ;
+; -182.145 ; calculator:inst4|result[4]  ; calculator:inst4|result[49] ; clk          ; clk         ; 1.000        ; -0.074     ; 183.073    ;
+; -182.144 ; calculator:inst4|result[2]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.046     ; 183.100    ;
+; -182.135 ; calculator:inst4|result[5]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.080     ; 183.057    ;
+; -182.131 ; calculator:inst4|result[0]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.045     ; 183.088    ;
+; -182.102 ; calculator:inst4|result[6]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.080     ; 183.024    ;
+; -182.096 ; calculator:inst4|result[7]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.080     ; 183.018    ;
+; -182.087 ; calculator:inst4|result[0]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.074     ; 183.015    ;
+; -182.075 ; calculator:inst4|result[4]  ; calculator:inst4|result[52] ; clk          ; clk         ; 1.000        ; -0.068     ; 183.009    ;
+; -182.069 ; calculator:inst4|result[1]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.076     ; 182.995    ;
+; -182.064 ; calculator:inst4|result[3]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.074     ; 182.992    ;
+; -182.053 ; calculator:inst4|result[9]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.070     ; 182.985    ;
+; -182.024 ; calculator:inst4|result[5]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.069     ; 182.957    ;
+; -182.020 ; calculator:inst4|result[63] ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.074     ; 182.948    ;
+; -182.008 ; calculator:inst4|result[4]  ; calculator:inst4|result[46] ; clk          ; clk         ; 1.000        ; -0.077     ; 182.933    ;
+; -182.000 ; calculator:inst4|result[3]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.080     ; 182.922    ;
+; -181.997 ; calculator:inst4|result[2]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.046     ; 182.953    ;
+; -181.991 ; calculator:inst4|result[6]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.069     ; 182.924    ;
+; -181.989 ; calculator:inst4|result[0]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.078     ; 182.913    ;
+; -181.985 ; calculator:inst4|result[7]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.069     ; 182.918    ;
+; -181.973 ; calculator:inst4|result[8]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.049     ; 182.926    ;
+; -181.970 ; calculator:inst4|result[5]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.069     ; 182.903    ;
+; -181.957 ; calculator:inst4|result[5]  ; calculator:inst4|result[49] ; clk          ; clk         ; 1.000        ; -0.074     ; 182.885    ;
+; -181.956 ; calculator:inst4|result[63] ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.080     ; 182.878    ;
+; -181.953 ; calculator:inst4|result[2]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.075     ; 182.880    ;
+; -181.937 ; calculator:inst4|result[6]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.069     ; 182.870    ;
+; -181.931 ; calculator:inst4|result[7]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.069     ; 182.864    ;
+; -181.924 ; calculator:inst4|result[6]  ; calculator:inst4|result[49] ; clk          ; clk         ; 1.000        ; -0.074     ; 182.852    ;
+; -181.918 ; calculator:inst4|result[7]  ; calculator:inst4|result[49] ; clk          ; clk         ; 1.000        ; -0.074     ; 182.846    ;
++----------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                                              ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.400 ; calculator:inst4|state.CHECK_SIGN2     ; calculator:inst4|state.CHECK_SIGN2     ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; calculator:inst4|state.CHECK_SIGN1     ; calculator:inst4|state.CHECK_SIGN1     ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; calculator:inst4|operation.100         ; calculator:inst4|operation.100         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; calculator:inst4|sign[1]~_Duplicate_2  ; calculator:inst4|sign[1]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; calculator:inst4|sign[0]~_Duplicate_2  ; calculator:inst4|sign[0]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; calculator:inst4|operation.000         ; calculator:inst4|operation.000         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; calculator:inst4|operation.001         ; calculator:inst4|operation.001         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; calculator:inst4|operation.011         ; calculator:inst4|operation.011         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; calculator:inst4|operation.010         ; calculator:inst4|operation.010         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; calculator:inst4|temp_operator[0]      ; calculator:inst4|temp_operator[0]      ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; uart_receive:inst3|data_en             ; uart_receive:inst3|data_en             ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; uart_receive:inst3|cnt3[0]             ; uart_receive:inst3|cnt3[0]             ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; uart_receive:inst3|cnt3[1]             ; uart_receive:inst3|cnt3[1]             ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; uart_receive:inst3|rev_cnt[2]          ; uart_receive:inst3|rev_cnt[2]          ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.400 ; uart_receive:inst3|rev_cnt[1]          ; uart_receive:inst3|rev_cnt[1]          ; clk          ; clk         ; 0.000        ; 0.074      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[12][4]   ; calculator:inst4|ascii_buffer[12][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[13][4]   ; calculator:inst4|ascii_buffer[13][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[15][4]   ; calculator:inst4|ascii_buffer[15][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[14][4]   ; calculator:inst4|ascii_buffer[14][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[9][4]    ; calculator:inst4|ascii_buffer[9][4]    ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[10][4]   ; calculator:inst4|ascii_buffer[10][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[8][4]    ; calculator:inst4|ascii_buffer[8][4]    ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[11][4]   ; calculator:inst4|ascii_buffer[11][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[21][4]   ; calculator:inst4|ascii_buffer[21][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[20][4]   ; calculator:inst4|ascii_buffer[20][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[1][4]    ; calculator:inst4|ascii_buffer[1][4]    ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[3][4]    ; calculator:inst4|ascii_buffer[3][4]    ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[18][4]   ; calculator:inst4|ascii_buffer[18][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[17][4]   ; calculator:inst4|ascii_buffer[17][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[16][4]   ; calculator:inst4|ascii_buffer[16][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[19][4]   ; calculator:inst4|ascii_buffer[19][4]   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_send:inst5|busy                   ; uart_send:inst5|busy                   ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_send:inst5|cnt[1]                 ; uart_send:inst5|cnt[1]                 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|tx_en                 ; calculator:inst4|tx_en                 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|state.WAIT5           ; calculator:inst4|state.WAIT5           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|state.WAIT1           ; calculator:inst4|state.WAIT1           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|ascii_buffer[0][4]    ; calculator:inst4|ascii_buffer[0][4]    ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; calculator:inst4|temp_operator[32]     ; calculator:inst4|temp_operator[32]     ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_receive:inst3|state.01            ; uart_receive:inst3|state.01            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_receive:inst3|state.10            ; uart_receive:inst3|state.10            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.401 ; uart_receive:inst3|state.00            ; uart_receive:inst3|state.00            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.669      ;
+; 0.402 ; calculator:inst4|ascii_buffer[2][4]    ; calculator:inst4|ascii_buffer[2][4]    ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; calculator:inst4|result[0]             ; calculator:inst4|result[0]             ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; calculator:inst4|ascii_buffer[6][4]    ; calculator:inst4|ascii_buffer[6][4]    ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; calculator:inst4|ascii_buffer[4][4]    ; calculator:inst4|ascii_buffer[4][4]    ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; calculator:inst4|ascii_buffer[7][4]    ; calculator:inst4|ascii_buffer[7][4]    ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; calculator:inst4|ascii_buffer[5][4]    ; calculator:inst4|ascii_buffer[5][4]    ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.415 ; uart_receive:inst3|rev_cnt[0]          ; uart_receive:inst3|rev_cnt[0]          ; clk          ; clk         ; 0.000        ; 0.074      ; 0.684      ;
+; 0.416 ; uart_send:inst5|cnt[0]                 ; uart_send:inst5|cnt[0]                 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.684      ;
+; 0.416 ; uart_receive:inst3|state.11            ; uart_receive:inst3|state.11            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.684      ;
+; 0.458 ; calculator:inst4|state.WAIT15          ; calculator:inst4|sign[0]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.074      ; 0.727      ;
+; 0.459 ; calculator:inst4|state.WAIT15          ; calculator:inst4|sign[1]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.074      ; 0.728      ;
+; 0.461 ; uart_receive:inst3|rev_cnt[0]          ; uart_receive:inst3|rev_cnt[1]          ; clk          ; clk         ; 0.000        ; 0.074      ; 0.730      ;
+; 0.464 ; uart_receive:inst3|rev_cnt[0]          ; uart_receive:inst3|rev_cnt[2]          ; clk          ; clk         ; 0.000        ; 0.074      ; 0.733      ;
+; 0.467 ; uart_send:inst5|send_cnt[12]           ; uart_send:inst5|send_cnt[12]           ; clk          ; clk         ; 0.000        ; 0.074      ; 0.736      ;
+; 0.469 ; uart_receive:inst3|data_sfg[0]         ; uart_receive:inst3|data_out[0]         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.738      ;
+; 0.470 ; calculator:inst4|state.WAIT8           ; calculator:inst4|state.READ_OP2        ; clk          ; clk         ; 0.000        ; 0.073      ; 0.738      ;
+; 0.470 ; calculator:inst4|state.WAIT5           ; calculator:inst4|state.WAIT6           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.738      ;
+; 0.471 ; calculator:inst4|state.WAIT12          ; calculator:inst4|state.CONVERT_RESULT2 ; clk          ; clk         ; 0.000        ; 0.074      ; 0.740      ;
+; 0.472 ; calculator:inst4|state.WAIT1           ; calculator:inst4|state.WAIT2           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.740      ;
+; 0.474 ; uart_receive:inst3|data_sfg[2]         ; uart_receive:inst3|data_sfg[1]         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.743      ;
+; 0.476 ; calculator:inst4|state.WAIT16          ; calculator:inst4|state.CHECK_SIGN1     ; clk          ; clk         ; 0.000        ; 0.074      ; 0.745      ;
+; 0.477 ; calculator:inst4|state.EMPTY3          ; calculator:inst4|state.EMPTY4          ; clk          ; clk         ; 0.000        ; 0.073      ; 0.745      ;
+; 0.477 ; uart_receive:inst3|data_sfg[2]         ; uart_receive:inst3|data_out[2]         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.746      ;
+; 0.477 ; uart_receive:inst3|data_sfg[7]         ; uart_receive:inst3|data_out[7]         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.745      ;
+; 0.478 ; calculator:inst4|state.EMPTY5          ; calculator:inst4|state.CALC            ; clk          ; clk         ; 0.000        ; 0.073      ; 0.746      ;
+; 0.478 ; uart_receive:inst3|data_sfg[6]         ; uart_receive:inst3|data_sfg[5]         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.746      ;
+; 0.478 ; uart_receive:inst3|data_sfg[7]         ; uart_receive:inst3|data_sfg[6]         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.746      ;
+; 0.479 ; calculator:inst4|state.EMPTY4          ; calculator:inst4|state.EMPTY5          ; clk          ; clk         ; 0.000        ; 0.073      ; 0.747      ;
+; 0.479 ; uart_receive:inst3|data_sfg[5]         ; uart_receive:inst3|data_out[5]         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.747      ;
+; 0.479 ; uart_receive:inst3|data_sfg[5]         ; uart_receive:inst3|data_sfg[4]         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.747      ;
+; 0.479 ; uart_receive:inst3|data_sfg[6]         ; uart_receive:inst3|data_out[6]         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.747      ;
+; 0.480 ; calculator:inst4|state.EMPTY2          ; calculator:inst4|state.EMPTY3          ; clk          ; clk         ; 0.000        ; 0.073      ; 0.748      ;
+; 0.483 ; calculator:inst4|state.WAIT14          ; calculator:inst4|state.WAIT15          ; clk          ; clk         ; 0.000        ; 0.074      ; 0.752      ;
+; 0.484 ; calculator:inst4|state.WAIT15          ; calculator:inst4|state.WAIT16          ; clk          ; clk         ; 0.000        ; 0.074      ; 0.753      ;
+; 0.484 ; uart_receive:inst3|rx_buf[0]           ; uart_receive:inst3|rx_buf[1]           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.752      ;
+; 0.488 ; calculator:inst4|buffer_len[5]         ; calculator:inst4|buffer_len[5]         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.756      ;
+; 0.490 ; calculator:inst4|send_index[5]         ; calculator:inst4|send_index[5]         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.758      ;
+; 0.502 ; calculator:inst4|state.CONVERT_RESULT2 ; calculator:inst4|state.WAIT9           ; clk          ; clk         ; 0.000        ; 0.074      ; 0.771      ;
+; 0.503 ; calculator:inst4|state.CONVERT_RESULT2 ; calculator:inst4|state.SEND_RESULT     ; clk          ; clk         ; 0.000        ; 0.074      ; 0.772      ;
+; 0.506 ; calculator:inst4|state.CALC            ; calculator:inst4|state.CONVERT_RESULT1 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.774      ;
+; 0.513 ; uart_send:inst5|busy                   ; uart_send:inst5|cnt[3]                 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.781      ;
+; 0.513 ; uart_send:inst5|busy                   ; uart_send:inst5|cnt[2]                 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.781      ;
+; 0.513 ; uart_send:inst5|busy                   ; uart_send:inst5|cnt[0]                 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.781      ;
+; 0.581 ; calculator:inst4|tx_data[3]            ; uart_send:inst5|sfg[4]                 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.849      ;
+; 0.599 ; uart_send:inst5|sfg[4]                 ; uart_send:inst5|sfg[3]                 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.867      ;
+; 0.623 ; calculator:inst4|state.EMPTY6          ; calculator:inst4|state.EMPTY7          ; clk          ; clk         ; 0.000        ; 0.076      ; 0.894      ;
+; 0.644 ; calculator:inst4|state.EMPTY8          ; calculator:inst4|state.EMPTY9          ; clk          ; clk         ; 0.000        ; 0.074      ; 0.913      ;
+; 0.644 ; calculator:inst4|state.EMPTY7          ; calculator:inst4|state.EMPTY8          ; clk          ; clk         ; 0.000        ; 0.074      ; 0.913      ;
+; 0.645 ; calculator:inst4|state.EMPTY9          ; calculator:inst4|state.EMPTY10         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.914      ;
+; 0.645 ; calculator:inst4|state.WAIT9           ; calculator:inst4|state.WAIT10          ; clk          ; clk         ; 0.000        ; 0.074      ; 0.914      ;
+; 0.652 ; uart_receive:inst3|data_sfg[4]         ; uart_receive:inst3|data_out[4]         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.920      ;
+; 0.653 ; uart_receive:inst3|data_sfg[1]         ; uart_receive:inst3|data_out[1]         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.922      ;
+; 0.653 ; uart_receive:inst3|data_sfg[1]         ; uart_receive:inst3|data_sfg[0]         ; clk          ; clk         ; 0.000        ; 0.074      ; 0.922      ;
+; 0.656 ; uart_receive:inst3|data_sfg[4]         ; uart_receive:inst3|data_sfg[3]         ; clk          ; clk         ; 0.000        ; 0.073      ; 0.924      ;
+; 0.659 ; uart_receive:inst3|state.01            ; uart_receive:inst3|data_en             ; clk          ; clk         ; 0.000        ; 0.073      ; 0.927      ;
+; 0.666 ; calculator:inst4|state.WAIT6           ; calculator:inst4|state.WAIT7           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.934      ;
+; 0.667 ; calculator:inst4|state.WAIT2           ; calculator:inst4|state.WAIT3           ; clk          ; clk         ; 0.000        ; 0.073      ; 0.935      ;
+; 0.688 ; uart_send:inst5|sfg[2]                 ; uart_send:inst5|sfg[1]                 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.956      ;
+; 0.689 ; uart_send:inst5|sfg[3]                 ; uart_send:inst5|sfg[2]                 ; clk          ; clk         ; 0.000        ; 0.073      ; 0.957      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+---------+------------------+
+; Clock ; Slack   ; End Point TNS    ;
++-------+---------+------------------+
+; clk   ; -85.704 ; -11248.093       ;
++-------+---------+------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.186 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -507.199                        ;
++-------+--------+---------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                         ;
++---------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                   ; To Node                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; -85.704 ; calculator:inst4|result[4]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.674     ;
+; -85.656 ; calculator:inst4|result[4]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.018     ; 86.625     ;
+; -85.650 ; calculator:inst4|result[4]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.620     ;
+; -85.650 ; calculator:inst4|result[6]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.620     ;
+; -85.646 ; calculator:inst4|result[5]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.616     ;
+; -85.645 ; calculator:inst4|result[7]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.615     ;
+; -85.602 ; calculator:inst4|result[6]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.018     ; 86.571     ;
+; -85.598 ; calculator:inst4|result[5]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.018     ; 86.567     ;
+; -85.597 ; calculator:inst4|result[7]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.018     ; 86.566     ;
+; -85.596 ; calculator:inst4|result[6]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.566     ;
+; -85.592 ; calculator:inst4|result[5]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.562     ;
+; -85.591 ; calculator:inst4|result[7]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.561     ;
+; -85.570 ; calculator:inst4|result[63] ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.540     ;
+; -85.567 ; calculator:inst4|result[3]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.537     ;
+; -85.522 ; calculator:inst4|result[63] ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.018     ; 86.491     ;
+; -85.519 ; calculator:inst4|result[3]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.018     ; 86.488     ;
+; -85.516 ; calculator:inst4|result[63] ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.486     ;
+; -85.513 ; calculator:inst4|result[3]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.483     ;
+; -85.503 ; calculator:inst4|result[4]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.039     ; 86.451     ;
+; -85.502 ; calculator:inst4|result[1]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.022     ; 86.467     ;
+; -85.499 ; calculator:inst4|result[4]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.469     ;
+; -85.472 ; calculator:inst4|result[4]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.423     ;
+; -85.454 ; calculator:inst4|result[1]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.023     ; 86.418     ;
+; -85.454 ; calculator:inst4|result[9]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.424     ;
+; -85.449 ; calculator:inst4|result[6]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.039     ; 86.397     ;
+; -85.448 ; calculator:inst4|result[1]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.022     ; 86.413     ;
+; -85.445 ; calculator:inst4|result[5]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.039     ; 86.393     ;
+; -85.445 ; calculator:inst4|result[6]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.415     ;
+; -85.444 ; calculator:inst4|result[7]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.039     ; 86.392     ;
+; -85.441 ; calculator:inst4|result[5]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.411     ;
+; -85.440 ; calculator:inst4|result[7]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.410     ;
+; -85.418 ; calculator:inst4|result[6]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.369     ;
+; -85.414 ; calculator:inst4|result[5]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.365     ;
+; -85.413 ; calculator:inst4|result[7]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.364     ;
+; -85.406 ; calculator:inst4|result[9]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.018     ; 86.375     ;
+; -85.400 ; calculator:inst4|result[9]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.370     ;
+; -85.375 ; calculator:inst4|result[4]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.326     ;
+; -85.369 ; calculator:inst4|result[63] ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.039     ; 86.317     ;
+; -85.366 ; calculator:inst4|result[3]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.039     ; 86.314     ;
+; -85.365 ; calculator:inst4|result[63] ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.335     ;
+; -85.362 ; calculator:inst4|result[3]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.332     ;
+; -85.340 ; calculator:inst4|result[0]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.020     ; 86.307     ;
+; -85.338 ; calculator:inst4|result[63] ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.289     ;
+; -85.335 ; calculator:inst4|result[3]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.286     ;
+; -85.321 ; calculator:inst4|result[6]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.272     ;
+; -85.317 ; calculator:inst4|result[5]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.268     ;
+; -85.316 ; calculator:inst4|result[7]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.267     ;
+; -85.301 ; calculator:inst4|result[1]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.044     ; 86.244     ;
+; -85.297 ; calculator:inst4|result[1]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.022     ; 86.262     ;
+; -85.292 ; calculator:inst4|result[0]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.021     ; 86.258     ;
+; -85.286 ; calculator:inst4|result[0]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.020     ; 86.253     ;
+; -85.278 ; calculator:inst4|result[2]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.021     ; 86.244     ;
+; -85.270 ; calculator:inst4|result[1]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.041     ; 86.216     ;
+; -85.256 ; calculator:inst4|result[4]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.207     ;
+; -85.253 ; calculator:inst4|result[9]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.039     ; 86.201     ;
+; -85.249 ; calculator:inst4|result[9]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.017     ; 86.219     ;
+; -85.241 ; calculator:inst4|result[63] ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.192     ;
+; -85.238 ; calculator:inst4|result[3]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.189     ;
+; -85.230 ; calculator:inst4|result[2]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.022     ; 86.195     ;
+; -85.224 ; calculator:inst4|result[2]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.021     ; 86.190     ;
+; -85.222 ; calculator:inst4|result[9]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.173     ;
+; -85.212 ; calculator:inst4|result[4]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.038     ; 86.161     ;
+; -85.202 ; calculator:inst4|result[6]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.153     ;
+; -85.198 ; calculator:inst4|result[5]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.149     ;
+; -85.197 ; calculator:inst4|result[7]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.148     ;
+; -85.195 ; calculator:inst4|result[8]  ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.020     ; 86.162     ;
+; -85.173 ; calculator:inst4|result[1]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.041     ; 86.119     ;
+; -85.168 ; calculator:inst4|result[4]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.037     ; 86.118     ;
+; -85.163 ; calculator:inst4|result[4]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.032     ; 86.118     ;
+; -85.158 ; calculator:inst4|result[6]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.038     ; 86.107     ;
+; -85.154 ; calculator:inst4|result[5]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.038     ; 86.103     ;
+; -85.153 ; calculator:inst4|result[7]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.038     ; 86.102     ;
+; -85.147 ; calculator:inst4|result[8]  ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.021     ; 86.113     ;
+; -85.141 ; calculator:inst4|result[8]  ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.020     ; 86.108     ;
+; -85.139 ; calculator:inst4|result[0]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.042     ; 86.084     ;
+; -85.136 ; calculator:inst4|result[10] ; calculator:inst4|result[60] ; clk          ; clk         ; 1.000        ; -0.020     ; 86.103     ;
+; -85.135 ; calculator:inst4|result[0]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.020     ; 86.102     ;
+; -85.129 ; calculator:inst4|result[4]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.032     ; 86.084     ;
+; -85.125 ; calculator:inst4|result[9]  ; calculator:inst4|result[56] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.076     ;
+; -85.122 ; calculator:inst4|result[63] ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.073     ;
+; -85.119 ; calculator:inst4|result[3]  ; calculator:inst4|result[55] ; clk          ; clk         ; 1.000        ; -0.036     ; 86.070     ;
+; -85.114 ; calculator:inst4|result[6]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.037     ; 86.064     ;
+; -85.110 ; calculator:inst4|result[4]  ; calculator:inst4|result[52] ; clk          ; clk         ; 1.000        ; -0.030     ; 86.067     ;
+; -85.110 ; calculator:inst4|result[5]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.037     ; 86.060     ;
+; -85.109 ; calculator:inst4|result[6]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.032     ; 86.064     ;
+; -85.109 ; calculator:inst4|result[7]  ; calculator:inst4|result[51] ; clk          ; clk         ; 1.000        ; -0.037     ; 86.059     ;
+; -85.108 ; calculator:inst4|result[0]  ; calculator:inst4|result[63] ; clk          ; clk         ; 1.000        ; -0.039     ; 86.056     ;
+; -85.105 ; calculator:inst4|result[5]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.032     ; 86.060     ;
+; -85.104 ; calculator:inst4|result[7]  ; calculator:inst4|result[54] ; clk          ; clk         ; 1.000        ; -0.032     ; 86.059     ;
+; -85.088 ; calculator:inst4|result[10] ; calculator:inst4|result[59] ; clk          ; clk         ; 1.000        ; -0.021     ; 86.054     ;
+; -85.082 ; calculator:inst4|result[10] ; calculator:inst4|result[58] ; clk          ; clk         ; 1.000        ; -0.020     ; 86.049     ;
+; -85.078 ; calculator:inst4|result[63] ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.038     ; 86.027     ;
+; -85.077 ; calculator:inst4|result[2]  ; calculator:inst4|result[61] ; clk          ; clk         ; 1.000        ; -0.043     ; 86.021     ;
+; -85.075 ; calculator:inst4|result[3]  ; calculator:inst4|result[62] ; clk          ; clk         ; 1.000        ; -0.038     ; 86.024     ;
+; -85.075 ; calculator:inst4|result[6]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.032     ; 86.030     ;
+; -85.073 ; calculator:inst4|result[2]  ; calculator:inst4|result[57] ; clk          ; clk         ; 1.000        ; -0.021     ; 86.039     ;
+; -85.071 ; calculator:inst4|result[5]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.032     ; 86.026     ;
+; -85.070 ; calculator:inst4|result[7]  ; calculator:inst4|result[53] ; clk          ; clk         ; 1.000        ; -0.032     ; 86.025     ;
+; -85.065 ; calculator:inst4|result[4]  ; calculator:inst4|result[49] ; clk          ; clk         ; 1.000        ; -0.037     ; 86.015     ;
+; -85.056 ; calculator:inst4|result[6]  ; calculator:inst4|result[52] ; clk          ; clk         ; 1.000        ; -0.030     ; 86.013     ;
++---------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                                              ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.186 ; calculator:inst4|ascii_buffer[12][4]   ; calculator:inst4|ascii_buffer[12][4]   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[13][4]   ; calculator:inst4|ascii_buffer[13][4]   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[15][4]   ; calculator:inst4|ascii_buffer[15][4]   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[14][4]   ; calculator:inst4|ascii_buffer[14][4]   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[9][4]    ; calculator:inst4|ascii_buffer[9][4]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[11][4]   ; calculator:inst4|ascii_buffer[11][4]   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[20][4]   ; calculator:inst4|ascii_buffer[20][4]   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[1][4]    ; calculator:inst4|ascii_buffer[1][4]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[3][4]    ; calculator:inst4|ascii_buffer[3][4]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[17][4]   ; calculator:inst4|ascii_buffer[17][4]   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[16][4]   ; calculator:inst4|ascii_buffer[16][4]   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[19][4]   ; calculator:inst4|ascii_buffer[19][4]   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_send:inst5|busy                   ; uart_send:inst5|busy                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_send:inst5|cnt[1]                 ; uart_send:inst5|cnt[1]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|tx_en                 ; calculator:inst4|tx_en                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|state.CHECK_SIGN2     ; calculator:inst4|state.CHECK_SIGN2     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|state.WAIT5           ; calculator:inst4|state.WAIT5           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|state.WAIT1           ; calculator:inst4|state.WAIT1           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[0][4]    ; calculator:inst4|ascii_buffer[0][4]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|state.CHECK_SIGN1     ; calculator:inst4|state.CHECK_SIGN1     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|operation.100         ; calculator:inst4|operation.100         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|sign[1]~_Duplicate_2  ; calculator:inst4|sign[1]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|sign[0]~_Duplicate_2  ; calculator:inst4|sign[0]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[6][4]    ; calculator:inst4|ascii_buffer[6][4]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[4][4]    ; calculator:inst4|ascii_buffer[4][4]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[7][4]    ; calculator:inst4|ascii_buffer[7][4]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|ascii_buffer[5][4]    ; calculator:inst4|ascii_buffer[5][4]    ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|operation.000         ; calculator:inst4|operation.000         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|operation.001         ; calculator:inst4|operation.001         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|operation.011         ; calculator:inst4|operation.011         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|operation.010         ; calculator:inst4|operation.010         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|temp_operator[32]     ; calculator:inst4|temp_operator[32]     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; calculator:inst4|temp_operator[0]      ; calculator:inst4|temp_operator[0]      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_receive:inst3|data_en             ; uart_receive:inst3|data_en             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_receive:inst3|state.01            ; uart_receive:inst3|state.01            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_receive:inst3|state.10            ; uart_receive:inst3|state.10            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_receive:inst3|state.00            ; uart_receive:inst3|state.00            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_receive:inst3|cnt3[0]             ; uart_receive:inst3|cnt3[0]             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_receive:inst3|cnt3[1]             ; uart_receive:inst3|cnt3[1]             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_receive:inst3|rev_cnt[2]          ; uart_receive:inst3|rev_cnt[2]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_receive:inst3|rev_cnt[1]          ; uart_receive:inst3|rev_cnt[1]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.187 ; calculator:inst4|ascii_buffer[10][4]   ; calculator:inst4|ascii_buffer[10][4]   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; calculator:inst4|ascii_buffer[8][4]    ; calculator:inst4|ascii_buffer[8][4]    ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; calculator:inst4|ascii_buffer[21][4]   ; calculator:inst4|ascii_buffer[21][4]   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; calculator:inst4|ascii_buffer[2][4]    ; calculator:inst4|ascii_buffer[2][4]    ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; calculator:inst4|ascii_buffer[18][4]   ; calculator:inst4|ascii_buffer[18][4]   ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; calculator:inst4|result[0]             ; calculator:inst4|result[0]             ; clk          ; clk         ; 0.000        ; 0.036      ; 0.307      ;
+; 0.193 ; uart_send:inst5|cnt[0]                 ; uart_send:inst5|cnt[0]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.193 ; calculator:inst4|state.WAIT8           ; calculator:inst4|state.READ_OP2        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.193 ; calculator:inst4|state.WAIT5           ; calculator:inst4|state.WAIT6           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.193 ; uart_receive:inst3|data_sfg[0]         ; uart_receive:inst3|data_out[0]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.193 ; uart_receive:inst3|rev_cnt[0]          ; uart_receive:inst3|rev_cnt[0]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.193 ; uart_receive:inst3|state.11            ; uart_receive:inst3|state.11            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.195 ; calculator:inst4|state.WAIT12          ; calculator:inst4|state.CONVERT_RESULT2 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.316      ;
+; 0.195 ; calculator:inst4|state.WAIT1           ; calculator:inst4|state.WAIT2           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.316      ;
+; 0.195 ; uart_receive:inst3|data_sfg[2]         ; uart_receive:inst3|data_sfg[1]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.316      ;
+; 0.197 ; calculator:inst4|state.EMPTY5          ; calculator:inst4|state.CALC            ; clk          ; clk         ; 0.000        ; 0.037      ; 0.318      ;
+; 0.197 ; uart_receive:inst3|data_sfg[7]         ; uart_receive:inst3|data_out[7]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.318      ;
+; 0.198 ; calculator:inst4|state.EMPTY3          ; calculator:inst4|state.EMPTY4          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.319      ;
+; 0.198 ; calculator:inst4|state.EMPTY4          ; calculator:inst4|state.EMPTY5          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.319      ;
+; 0.198 ; uart_receive:inst3|data_sfg[5]         ; uart_receive:inst3|data_sfg[4]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.319      ;
+; 0.198 ; uart_receive:inst3|data_sfg[6]         ; uart_receive:inst3|data_sfg[5]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.319      ;
+; 0.198 ; uart_receive:inst3|data_sfg[7]         ; uart_receive:inst3|data_sfg[6]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.319      ;
+; 0.199 ; uart_receive:inst3|data_sfg[2]         ; uart_receive:inst3|data_out[2]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.320      ;
+; 0.199 ; uart_receive:inst3|data_sfg[5]         ; uart_receive:inst3|data_out[5]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.320      ;
+; 0.199 ; uart_receive:inst3|data_sfg[6]         ; uart_receive:inst3|data_out[6]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.320      ;
+; 0.200 ; calculator:inst4|state.EMPTY2          ; calculator:inst4|state.EMPTY3          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.321      ;
+; 0.201 ; calculator:inst4|state.WAIT14          ; calculator:inst4|state.WAIT15          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.322      ;
+; 0.201 ; uart_receive:inst3|rx_buf[0]           ; uart_receive:inst3|rx_buf[1]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.322      ;
+; 0.201 ; uart_receive:inst3|rev_cnt[0]          ; uart_receive:inst3|rev_cnt[1]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.322      ;
+; 0.202 ; calculator:inst4|state.WAIT15          ; calculator:inst4|state.WAIT16          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.323      ;
+; 0.203 ; uart_send:inst5|send_cnt[12]           ; uart_send:inst5|send_cnt[12]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.324      ;
+; 0.203 ; uart_receive:inst3|rev_cnt[0]          ; uart_receive:inst3|rev_cnt[2]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.324      ;
+; 0.204 ; calculator:inst4|state.WAIT15          ; calculator:inst4|sign[1]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.325      ;
+; 0.204 ; calculator:inst4|state.WAIT15          ; calculator:inst4|sign[0]~_Duplicate_2  ; clk          ; clk         ; 0.000        ; 0.037      ; 0.325      ;
+; 0.210 ; calculator:inst4|state.CONVERT_RESULT2 ; calculator:inst4|state.WAIT9           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.331      ;
+; 0.212 ; calculator:inst4|state.CONVERT_RESULT2 ; calculator:inst4|state.SEND_RESULT     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.333      ;
+; 0.212 ; calculator:inst4|state.CALC            ; calculator:inst4|state.CONVERT_RESULT1 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.333      ;
+; 0.214 ; calculator:inst4|state.WAIT16          ; calculator:inst4|state.CHECK_SIGN1     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.335      ;
+; 0.215 ; calculator:inst4|buffer_len[5]         ; calculator:inst4|buffer_len[5]         ; clk          ; clk         ; 0.000        ; 0.036      ; 0.335      ;
+; 0.216 ; uart_send:inst5|busy                   ; uart_send:inst5|cnt[3]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.337      ;
+; 0.216 ; calculator:inst4|send_index[5]         ; calculator:inst4|send_index[5]         ; clk          ; clk         ; 0.000        ; 0.036      ; 0.336      ;
+; 0.216 ; uart_send:inst5|busy                   ; uart_send:inst5|cnt[0]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.337      ;
+; 0.217 ; uart_send:inst5|busy                   ; uart_send:inst5|cnt[2]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.338      ;
+; 0.252 ; calculator:inst4|tx_data[3]            ; uart_send:inst5|sfg[4]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.373      ;
+; 0.253 ; uart_send:inst5|sfg[4]                 ; uart_send:inst5|sfg[3]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.374      ;
+; 0.264 ; calculator:inst4|state.EMPTY6          ; calculator:inst4|state.EMPTY7          ; clk          ; clk         ; 0.000        ; 0.038      ; 0.386      ;
+; 0.266 ; calculator:inst4|state.EMPTY8          ; calculator:inst4|state.EMPTY9          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.387      ;
+; 0.266 ; calculator:inst4|state.EMPTY7          ; calculator:inst4|state.EMPTY8          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.387      ;
+; 0.267 ; calculator:inst4|state.EMPTY9          ; calculator:inst4|state.EMPTY10         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.388      ;
+; 0.267 ; calculator:inst4|state.WAIT9           ; calculator:inst4|state.WAIT10          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.388      ;
+; 0.270 ; uart_receive:inst3|data_sfg[4]         ; uart_receive:inst3|data_out[4]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.391      ;
+; 0.272 ; uart_receive:inst3|data_sfg[1]         ; uart_receive:inst3|data_out[1]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.393      ;
+; 0.272 ; uart_receive:inst3|data_sfg[1]         ; uart_receive:inst3|data_sfg[0]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.393      ;
+; 0.274 ; uart_receive:inst3|data_sfg[4]         ; uart_receive:inst3|data_sfg[3]         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.395      ;
+; 0.277 ; calculator:inst4|state.WAIT6           ; calculator:inst4|state.WAIT7           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.398      ;
+; 0.279 ; calculator:inst4|state.WAIT2           ; calculator:inst4|state.WAIT3           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.400      ;
+; 0.285 ; uart_receive:inst3|state.01            ; uart_receive:inst3|data_en             ; clk          ; clk         ; 0.000        ; 0.037      ; 0.406      ;
+; 0.293 ; uart_send:inst5|sfg[2]                 ; uart_send:inst5|sfg[1]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.414      ;
+; 0.294 ; uart_send:inst5|sfg[3]                 ; uart_send:inst5|sfg[2]                 ; clk          ; clk         ; 0.000        ; 0.037      ; 0.415      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++----------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                              ;
++------------------+------------+-------+----------+---------+---------------------+
+; Clock            ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+------------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -200.330   ; 0.186 ; N/A      ; N/A     ; -4.000              ;
+;  clk             ; -200.330   ; 0.186 ; N/A      ; N/A     ; -4.000              ;
+; Design-wide TNS  ; -26723.518 ; 0.0   ; 0.0      ; 0.0     ; -882.348            ;
+;  clk             ; -26723.518 ; 0.000 ; N/A      ; N/A     ; -882.348            ;
++------------------+------------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; txd           ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; rxd                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; txd           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.07e-09 V                   ; 2.36 V              ; -0.00737 V          ; 0.209 V                              ; 0.012 V                              ; 5.22e-10 s                  ; 5.33e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.07e-09 V                  ; 2.36 V             ; -0.00737 V         ; 0.209 V                             ; 0.012 V                             ; 5.22e-10 s                 ; 5.33e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.37 V              ; -0.0346 V           ; 0.198 V                              ; 0.094 V                              ; 3.14e-10 s                  ; 2.92e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.37 V             ; -0.0346 V          ; 0.198 V                             ; 0.094 V                             ; 3.14e-10 s                 ; 2.92e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.57e-09 V                   ; 2.37 V              ; -0.00683 V          ; 0.171 V                              ; 0.018 V                              ; 4.97e-10 s                  ; 6.66e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.57e-09 V                  ; 2.37 V             ; -0.00683 V         ; 0.171 V                             ; 0.018 V                             ; 4.97e-10 s                 ; 6.66e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; txd           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.93e-07 V                   ; 2.34 V              ; -0.00869 V          ; 0.14 V                               ; 0.046 V                              ; 6.89e-10 s                  ; 6.56e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.93e-07 V                  ; 2.34 V             ; -0.00869 V         ; 0.14 V                              ; 0.046 V                             ; 6.89e-10 s                 ; 6.56e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.55e-07 V                   ; 2.35 V              ; -0.00221 V          ; 0.097 V                              ; 0.005 V                              ; 4.49e-10 s                  ; 3.85e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.55e-07 V                  ; 2.35 V             ; -0.00221 V         ; 0.097 V                             ; 0.005 V                             ; 4.49e-10 s                 ; 3.85e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.54e-07 V                   ; 2.34 V              ; -0.00774 V          ; 0.109 V                              ; 0.026 V                              ; 6.58e-10 s                  ; 8.24e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.54e-07 V                  ; 2.34 V             ; -0.00774 V         ; 0.109 V                             ; 0.026 V                             ; 6.58e-10 s                 ; 8.24e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; txd           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Transfers                                                       ;
++------------+----------+--------------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+--------------+----------+----------+----------+
+; clk        ; clk      ; > 2147483647 ; 0        ; 0        ; 0        ;
++------------+----------+--------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------+
+; Hold Transfers                                                        ;
++------------+----------+--------------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+--------------+----------+----------+----------+
+; clk        ; clk      ; > 2147483647 ; 0        ; 0        ; 0        ;
++------------+----------+--------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 1     ; 1    ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 1     ; 1    ;
++---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; rxd        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; txd         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; rxd        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; txd         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sat May 18 14:53:33 2024
+Info: Command: quartus_sta assignment -c assignment
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'assignment.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -200.330
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):  -200.330          -26723.518 clk 
+Info (332146): Worst-case hold slack is 0.452
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.452               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -4.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.000            -882.348 clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -183.241
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):  -183.241          -24517.848 clk 
+Info (332146): Worst-case hold slack is 0.400
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.400               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -4.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.000            -880.942 clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -85.704
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -85.704          -11248.093 clk 
+Info (332146): Worst-case hold slack is 0.186
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.186               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -507.199 clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4950 megabytes
+    Info: Processing ended: Sat May 18 14:53:36 2024
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:01
+
+
